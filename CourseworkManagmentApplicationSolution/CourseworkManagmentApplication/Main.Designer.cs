@@ -28,79 +28,85 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
+            this.buttonDeadlines = new System.Windows.Forms.Button();
+            this.buttonAssignModerator = new System.Windows.Forms.Button();
+            this.buttonViewAssessmentStrategy = new System.Windows.Forms.Button();
+            this.buttonUpdateScrutinyForm = new System.Windows.Forms.Button();
+            this.buttonTasks = new System.Windows.Forms.Button();
+            this.buttonModifyAssessment = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
-            // button1
+            // buttonDeadlines
             // 
-            this.button1.Location = new System.Drawing.Point(17, 38);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(171, 124);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Deadlines";
-            this.button1.UseVisualStyleBackColor = true;
+            this.buttonDeadlines.Location = new System.Drawing.Point(17, 38);
+            this.buttonDeadlines.Name = "buttonDeadlines";
+            this.buttonDeadlines.Size = new System.Drawing.Size(171, 124);
+            this.buttonDeadlines.TabIndex = 0;
+            this.buttonDeadlines.Text = "Deadlines";
+            this.buttonDeadlines.UseVisualStyleBackColor = true;
+            this.buttonDeadlines.Click += new System.EventHandler(this.buttonDeadlines_Click);
             // 
-            // button2
+            // buttonAssignModerator
             // 
-            this.button2.Location = new System.Drawing.Point(206, 38);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(171, 124);
-            this.button2.TabIndex = 1;
-            this.button2.Text = "Assign Moderators";
-            this.button2.UseVisualStyleBackColor = true;
+            this.buttonAssignModerator.Location = new System.Drawing.Point(206, 38);
+            this.buttonAssignModerator.Name = "buttonAssignModerator";
+            this.buttonAssignModerator.Size = new System.Drawing.Size(171, 124);
+            this.buttonAssignModerator.TabIndex = 1;
+            this.buttonAssignModerator.Text = "Assign Moderators";
+            this.buttonAssignModerator.UseVisualStyleBackColor = true;
+            this.buttonAssignModerator.Click += new System.EventHandler(this.buttonAssignModerator_Click);
             // 
-            // button3
+            // buttonViewAssessmentStrategy
             // 
-            this.button3.Location = new System.Drawing.Point(206, 325);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(171, 124);
-            this.button3.TabIndex = 2;
-            this.button3.Text = "View Assessment Strategy";
-            this.button3.UseVisualStyleBackColor = true;
+            this.buttonViewAssessmentStrategy.Location = new System.Drawing.Point(206, 325);
+            this.buttonViewAssessmentStrategy.Name = "buttonViewAssessmentStrategy";
+            this.buttonViewAssessmentStrategy.Size = new System.Drawing.Size(171, 124);
+            this.buttonViewAssessmentStrategy.TabIndex = 2;
+            this.buttonViewAssessmentStrategy.Text = "View Assessment Strategy";
+            this.buttonViewAssessmentStrategy.UseVisualStyleBackColor = true;
+            this.buttonViewAssessmentStrategy.Click += new System.EventHandler(this.buttonViewAssessmentStrategy_Click);
             // 
-            // button4
+            // buttonUpdateScrutinyForm
             // 
-            this.button4.Location = new System.Drawing.Point(17, 325);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(171, 124);
-            this.button4.TabIndex = 5;
-            this.button4.Text = "Update Scrutiny Form";
-            this.button4.UseVisualStyleBackColor = true;
+            this.buttonUpdateScrutinyForm.Location = new System.Drawing.Point(17, 325);
+            this.buttonUpdateScrutinyForm.Name = "buttonUpdateScrutinyForm";
+            this.buttonUpdateScrutinyForm.Size = new System.Drawing.Size(171, 124);
+            this.buttonUpdateScrutinyForm.TabIndex = 5;
+            this.buttonUpdateScrutinyForm.Text = "Update Scrutiny Form";
+            this.buttonUpdateScrutinyForm.UseVisualStyleBackColor = true;
+            this.buttonUpdateScrutinyForm.Click += new System.EventHandler(this.buttonUpdateScrutinyForm_Click);
             // 
-            // button5
+            // buttonTasks
             // 
-            this.button5.Location = new System.Drawing.Point(206, 180);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(171, 124);
-            this.button5.TabIndex = 4;
-            this.button5.Text = "Tasks";
-            this.button5.UseVisualStyleBackColor = true;
+            this.buttonTasks.Location = new System.Drawing.Point(206, 180);
+            this.buttonTasks.Name = "buttonTasks";
+            this.buttonTasks.Size = new System.Drawing.Size(171, 124);
+            this.buttonTasks.TabIndex = 4;
+            this.buttonTasks.Text = "Tasks";
+            this.buttonTasks.UseVisualStyleBackColor = true;
+            this.buttonTasks.Click += new System.EventHandler(this.buttonTasks_Click);
             // 
-            // button6
+            // buttonModifyAssessment
             // 
-            this.button6.Location = new System.Drawing.Point(17, 180);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(171, 124);
-            this.button6.TabIndex = 3;
-            this.button6.Text = "Modify Assessment";
-            this.button6.UseVisualStyleBackColor = true;
+            this.buttonModifyAssessment.Location = new System.Drawing.Point(17, 180);
+            this.buttonModifyAssessment.Name = "buttonModifyAssessment";
+            this.buttonModifyAssessment.Size = new System.Drawing.Size(171, 124);
+            this.buttonModifyAssessment.TabIndex = 3;
+            this.buttonModifyAssessment.Text = "Modify Assessment";
+            this.buttonModifyAssessment.UseVisualStyleBackColor = true;
+            this.buttonModifyAssessment.Click += new System.EventHandler(this.buttonModifyAssessment_Click);
             // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(399, 495);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button5);
-            this.Controls.Add(this.button6);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.buttonUpdateScrutinyForm);
+            this.Controls.Add(this.buttonTasks);
+            this.Controls.Add(this.buttonModifyAssessment);
+            this.Controls.Add(this.buttonViewAssessmentStrategy);
+            this.Controls.Add(this.buttonAssignModerator);
+            this.Controls.Add(this.buttonDeadlines);
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Main";
@@ -110,11 +116,11 @@
 
         #endregion
 
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Button buttonDeadlines;
+        private System.Windows.Forms.Button buttonAssignModerator;
+        private System.Windows.Forms.Button buttonViewAssessmentStrategy;
+        private System.Windows.Forms.Button buttonUpdateScrutinyForm;
+        private System.Windows.Forms.Button buttonTasks;
+        private System.Windows.Forms.Button buttonModifyAssessment;
     }
 }

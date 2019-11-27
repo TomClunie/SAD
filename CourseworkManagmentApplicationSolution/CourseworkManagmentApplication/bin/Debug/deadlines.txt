@@ -1,0 +1,3 @@
+Admin: Administer Panel,Assignment 1,19/12/2019,12/12/2019,Send out email.
+Admin: Book Meeting Room,Assignment 2,19/12/2019,12/12/2019,Request Leon to attend.
+Assignment,Assignment 3,01/01/2020,1/12/2019
