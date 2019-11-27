@@ -106,6 +106,7 @@
     <Compile Include="UpdateScrutiny.Designer.cs">
       <DependentUpon>UpdateScrutiny.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserClasses.cs" />
     <EmbeddedResource Include="AssignModerator.resx">
       <DependentUpon>AssignModerator.cs</DependentUpon>
     </EmbeddedResource>
