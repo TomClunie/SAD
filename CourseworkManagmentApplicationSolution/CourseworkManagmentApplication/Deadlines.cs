@@ -24,13 +24,10 @@ namespace CourseworkManagmentApplication
 
         private void Deadlines_Load(object sender, EventArgs e)
         {
-            //Display first item in combo box
-            //comboBoxType.SelectedIndex = comboBoxType.Items.Count - 1;
-
+            //set initial date time picker value
             dateTimePicker.Value = dateTimePicker.MinDate;
+
             //Load and save deadlines
-
-
             string line;
             StreamReader reader = new StreamReader(@".\\deadlines.txt");
 
@@ -80,7 +77,13 @@ namespace CourseworkManagmentApplication
 
         private void comboBoxType_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //Clear items and selection if selected item in combo box 1 changes
+            richTextBox.Clear();
+            dateTimePicker.Value = dateTimePicker.MinDate;
+            comboBoxName.SelectedIndex = -1;
             comboBoxName.Items.Clear();
+
+            //Change contents of the 2nd combo box depending on which item is selected in the first combobox
             if (comboBoxType.SelectedIndex == 0)
             {
                 
@@ -107,6 +110,48 @@ namespace CourseworkManagmentApplication
                     comboBoxName.Items.Add(assignments[i].getName());
                 }
             }
+        }
+
+        private void comboBoxName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            if (comboBoxType.SelectedIndex == 0)
+            {
+                for (int i = 0; i < panels.Count; i++)
+                {
+                    if (panels[i].getName() == comboBoxName.Text.ToString())
+                    {
+                        richTextBox.Text = panels[i].getComment();
+                        dateTimePicker.Value = DateTime.Parse(panels[i].getDueDate());
+                    }
+                }
+            }
+
+            if (comboBoxType.SelectedIndex == 1)
+            {
+                for (int i = 0; i < meetings.Count; i++)
+                {
+                    if (meetings[i].getName() == comboBoxName.Text.ToString())
+                    {
+                        richTextBox.Text = meetings[i].getComment();
+                        dateTimePicker.Value = DateTime.Parse(meetings[i].getDueDate());
+                    }
+                }
+            }
+
+            if (comboBoxType.SelectedIndex == 2)
+            {
+
+                for (int i = 0; i < assignments.Count; i++)
+                {
+                    if (assignments[i].getName() == comboBoxName.Text.ToString())
+                    {
+                        richTextBox.Text = assignments[i].getComment();
+                        dateTimePicker.Value = DateTime.Parse(assignments[i].getDueDate());
+                    }
+                }
+            }
+
         }
     }
 }

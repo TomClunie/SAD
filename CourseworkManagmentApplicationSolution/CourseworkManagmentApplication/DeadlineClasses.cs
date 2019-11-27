@@ -26,9 +26,20 @@ namespace CourseworkManagmentApplication
             this.setDate = setDate;
             this.comment = comment;
         }
+
         public string getName()
         {
             return name;
+        }
+
+        public string getDueDate()
+        {
+            return dueDate;
+        }
+
+        public string getComment()
+        {
+            return comment;
         }
     }
 
