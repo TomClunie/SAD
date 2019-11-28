@@ -96,7 +96,7 @@ namespace CourseworkManagmentApplication
             if (comboBoxType.SelectedIndex == 1)
             {
                 
-                for (int i = 0; i < panels.Count; i++)
+                for (int i = 0; i < meetings.Count; i++)
                 {
                     comboBoxName.Items.Add(meetings[i].getName());
                 }
@@ -105,7 +105,7 @@ namespace CourseworkManagmentApplication
             if (comboBoxType.SelectedIndex == 2)
             {
                 
-                for (int i = 0; i < panels.Count; i++)
+                for (int i = 0; i < assignments.Count; i++)
                 {
                     comboBoxName.Items.Add(assignments[i].getName());
                 }
@@ -238,6 +238,7 @@ namespace CourseworkManagmentApplication
                 comboBoxName.Text = "";
                 richTextBox.Clear();
                 dateTimePicker.Value = dateTimePicker.MinDate;
+                MessageBox.Show("Item has been added");
             }
 
             if (comboBoxType.SelectedIndex == 1)
@@ -255,6 +256,7 @@ namespace CourseworkManagmentApplication
                 comboBoxName.Text = "";
                 richTextBox.Clear();
                 dateTimePicker.Value = dateTimePicker.MinDate;
+                MessageBox.Show("Item has been added");
             }
 
             if (comboBoxType.SelectedIndex == 2)
@@ -271,6 +273,7 @@ namespace CourseworkManagmentApplication
                 comboBoxName.Text = "";
                 richTextBox.Clear();
                 dateTimePicker.Value = dateTimePicker.MinDate;
+                MessageBox.Show("Item has been added");
             }
         }
 
