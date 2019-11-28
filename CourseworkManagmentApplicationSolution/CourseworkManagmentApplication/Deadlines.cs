@@ -151,7 +151,140 @@ namespace CourseworkManagmentApplication
                     }
                 }
             }
+        }
 
+        private void buttonRemove_Click(object sender, EventArgs e)
+        {   //Validation
+            if (comboBoxName.SelectedItem == null)
+            {
+                MessageBox.Show("Please select an item");
+            }
+
+            //Removing items
+            if (comboBoxType.SelectedIndex == 0)
+            {
+                for (int i = 0; i < panels.Count; i++)
+                {
+                    if (panels[i].getName() == comboBoxName.Text.ToString())
+                    {
+                        panels.RemoveAt(i);
+                        comboBoxName.Items.Remove(comboBoxName.SelectedItem);
+                        comboBoxName.Text = "";
+                        richTextBox.Clear();
+                        dateTimePicker.Value = dateTimePicker.MinDate;
+                    }
+                }
+            }
+
+            if (comboBoxType.SelectedIndex == 1)
+            {
+                for (int i = 0; i < meetings.Count; i++)
+                {
+                    if (meetings[i].getName() == comboBoxName.Text.ToString())
+                    {
+                        meetings.RemoveAt(i);
+                        comboBoxName.Items.Remove(comboBoxName.SelectedItem);
+                        comboBoxName.Text = "";
+                        richTextBox.Clear();
+                        dateTimePicker.Value = dateTimePicker.MinDate;
+                    }
+                }
+            }
+
+            if (comboBoxType.SelectedIndex == 2)
+            {
+
+                for (int i = 0; i < assignments.Count; i++)
+                {
+                    if (assignments[i].getName() == comboBoxName.Text.ToString())
+                    {
+                        assignments.RemoveAt(i);
+                        comboBoxName.Items.Remove(comboBoxName.SelectedItem);
+                        comboBoxName.Text = "";
+                        richTextBox.Clear();
+                        dateTimePicker.Value = dateTimePicker.MinDate;
+                    }
+                }
+            }
+        }
+        private void buttonAdd_Click(object sender, EventArgs e)
+        {
+            //Validation
+            if (comboBoxType.SelectedItem == null)
+            {
+                MessageBox.Show("Please select an item");
+            }
+            else if (comboBoxName.Text.ToString() == "")
+            {
+                MessageBox.Show("Please select an item");
+            }
+
+            var dueDate = dateTimePicker.Value.ToShortDateString();
+            var setDate = DateTime.Now.ToShortDateString();
+
+            if (comboBoxType.SelectedIndex == 0)
+            {
+
+                if (richTextBox.TextLength == 0)
+                {
+                    panels.Add(new AdminPanel(comboBoxName.Text.ToString(), dueDate, setDate, ""));
+                }
+                else
+                {
+                    panels.Add(new AdminPanel(comboBoxName.Text.ToString(), dueDate, setDate, richTextBox.Text));
+                }
+
+                comboBoxName.Items.Add(comboBoxName.Text.ToString());
+                comboBoxName.Text = "";
+                richTextBox.Clear();
+                dateTimePicker.Value = dateTimePicker.MinDate;
+            }
+
+            if (comboBoxType.SelectedIndex == 1)
+            {
+                if (richTextBox.TextLength == 0)
+                {
+                    meetings.Add(new AdminMeeting(comboBoxName.Text.ToString(), dueDate, setDate, ""));
+                }
+                else
+                {
+                    meetings.Add(new AdminMeeting(comboBoxName.Text.ToString(), dueDate, setDate, richTextBox.Text));
+                }
+
+                comboBoxName.Items.Add(comboBoxName.Text.ToString());
+                comboBoxName.Text = "";
+                richTextBox.Clear();
+                dateTimePicker.Value = dateTimePicker.MinDate;
+            }
+
+            if (comboBoxType.SelectedIndex == 2)
+            {
+                if (richTextBox.TextLength == 0)
+                {
+                    assignments.Add(new Assignment(comboBoxName.Text.ToString(), dueDate, setDate, ""));
+                }
+                else
+                {
+                    assignments.Add(new Assignment(comboBoxName.Text.ToString(), dueDate, setDate, richTextBox.Text));
+                }
+                comboBoxName.Items.Add(comboBoxName.Text.ToString());
+                comboBoxName.Text = "";
+                richTextBox.Clear();
+                dateTimePicker.Value = dateTimePicker.MinDate;
+            }
+        }
+
+        private void buttonUpdate_Click(object sender, EventArgs e)
+        {
+            //Validation
+            if (comboBoxType.SelectedItem == null)
+            {
+                MessageBox.Show("Please select an item");
+            }
+            else if (comboBoxName.Text.ToString() == "")
+            {
+                MessageBox.Show("Please select an item");
+            }
         }
     }
 }
