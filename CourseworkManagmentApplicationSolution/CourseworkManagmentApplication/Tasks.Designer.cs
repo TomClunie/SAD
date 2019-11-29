@@ -48,7 +48,6 @@
             this.Name = "Tasks";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tasks";
-            this.Load += new System.EventHandler(this.Tasks_Load);
             this.ResumeLayout(false);
 
         }

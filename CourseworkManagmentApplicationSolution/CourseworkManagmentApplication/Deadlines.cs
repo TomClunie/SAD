@@ -209,6 +209,8 @@ namespace CourseworkManagmentApplication
         }
         private void buttonAdd_Click(object sender, EventArgs e)
         {
+            StreamWriter write = new StreamWriter(@".\\deadlines.txt");
+
             //Validation
             if (comboBoxType.SelectedItem == null)
             {
@@ -233,7 +235,6 @@ namespace CourseworkManagmentApplication
                 {
                     panels.Add(new AdminPanel(comboBoxName.Text.ToString(), dueDate, setDate, richTextBox.Text));
                 }
-
                 comboBoxName.Items.Add(comboBoxName.Text.ToString());
                 comboBoxName.Text = "";
                 richTextBox.Clear();

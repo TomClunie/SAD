@@ -55,6 +55,11 @@ namespace CourseworkManagmentApplication
 
         }
 
+        public string getType()
+        {
+            return "Assignment";
+        }
+
     }
 
     class AdminPanel : DeadlineClasses
@@ -66,7 +71,13 @@ namespace CourseworkManagmentApplication
 
         public AdminPanel(string name, string dueDate, string setDate, string comment) : base(name, dueDate, setDate, comment)
         {
+        
 
+        }
+
+        public string getType()
+        {
+            return "Admin: Administer Panel";
         }
     }
 
@@ -80,6 +91,11 @@ namespace CourseworkManagmentApplication
         public AdminMeeting(string name, string dueDate, string setDate, string comment) : base(name, dueDate, setDate, comment)
         {
 
+        }
+
+        public string getType()
+        {
+            return "Admin: Book Meeting Room";
         }
     }
 }

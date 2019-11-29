@@ -7,7 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.IO;
 
 namespace CourseworkManagmentApplication
 {
@@ -16,17 +15,6 @@ namespace CourseworkManagmentApplication
         public Tasks()
         {
             InitializeComponent();
-        }
-
-        private void Tasks_Load(object sender, EventArgs e)
-        {
-            string line;
-            StreamReader reader = new StreamReader(@".\\deadlines.txt");
-
-            while ((line = reader.ReadLine()) != null)
-            {
-                listBox1.Items.Add(line);
-            }
         }
     }
 }
