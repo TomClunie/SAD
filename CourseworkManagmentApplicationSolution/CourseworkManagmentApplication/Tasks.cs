@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace CourseworkManagmentApplication
 {
@@ -15,10 +16,6 @@ namespace CourseworkManagmentApplication
         public Tasks()
         {
             InitializeComponent();
-        }
-        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
 
         private void Tasks_Load(object sender, EventArgs e)

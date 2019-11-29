@@ -17,26 +17,6 @@ namespace CourseworkManagmentApplication
             InitializeComponent();
         }
 
-        // Allowing the assign moderator button visibility property to be changed on another form.
-        public void setAMButtonVisible(Boolean flag)
-        {
-            this.buttonAssignModerator.Visible = flag;
-        }
-        // Allowing the update scrutiny button visibility property to be changed on another form.
-        public void setUSButtonVisible(Boolean flag)
-        {
-            this.buttonUpdateScrutinyForm.Visible = flag;
-        }
-        // Allowing the update modify assessment button visibility property to be changed on another form.
-        public void setMAButtonVisible(Boolean flag)
-        {
-            this.buttonModifyAssessment.Visible = flag;
-        }
-        // Allowing the view assessment strategy button visibility property to be changed on another form.
-        public void setVASButtonVisible(Boolean flag)
-        {
-            this.buttonViewAssessmentStrategy.Visible = flag;
-        }
         private void buttonDeadlines_Click(object sender, EventArgs e)
         {
             Deadlines deadlines = new Deadlines();
