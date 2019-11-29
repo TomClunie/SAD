@@ -16,5 +16,20 @@ namespace CourseworkManagmentApplication
         {
             InitializeComponent();
         }
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Tasks_Load(object sender, EventArgs e)
+        {
+            string line;
+            StreamReader reader = new StreamReader(@".\\deadlines.txt");
+
+            while ((line = reader.ReadLine()) != null)
+            {
+                listBox1.Items.Add(line);
+            }
+        }
     }
 }
