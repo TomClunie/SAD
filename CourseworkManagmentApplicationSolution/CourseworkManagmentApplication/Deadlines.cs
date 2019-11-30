@@ -27,7 +27,7 @@ namespace CourseworkManagmentApplication
             //set initial date time picker value
             dateTimePicker.Value = dateTimePicker.MinDate;
 
-            //Load and save deadlines
+            //Load and save deadlines to lists
             string line;
             StreamReader reader = new StreamReader(@".\\deadlines.txt");
 
@@ -112,9 +112,9 @@ namespace CourseworkManagmentApplication
             }
         }
 
+        //display information for each selected item
         private void comboBoxName_SelectedIndexChanged(object sender, EventArgs e)
         {
-
             if (comboBoxType.SelectedIndex == 0)
             {
                 for (int i = 0; i < panels.Count; i++)
@@ -141,7 +141,6 @@ namespace CourseworkManagmentApplication
 
             if (comboBoxType.SelectedIndex == 2)
             {
-
                 for (int i = 0; i < assignments.Count; i++)
                 {
                     if (assignments[i].getName() == comboBoxName.Text.ToString())
@@ -159,58 +158,74 @@ namespace CourseworkManagmentApplication
             {
                 MessageBox.Show("Please select an item");
             }
-
-            //Removing items
-            if (comboBoxType.SelectedIndex == 0)
+            else
             {
-                for (int i = 0; i < panels.Count; i++)
+                //Removing items
+                if (comboBoxType.SelectedIndex == 0)
                 {
-                    if (panels[i].getName() == comboBoxName.Text.ToString())
+                    for (int i = 0; i < panels.Count; i++)
                     {
-                        panels.RemoveAt(i);
-                        comboBoxName.Items.Remove(comboBoxName.SelectedItem);
-                        comboBoxName.Text = "";
-                        richTextBox.Clear();
-                        dateTimePicker.Value = dateTimePicker.MinDate;
+                        if (panels[i].getName() == comboBoxName.Text.ToString())
+                        {
+                            panels.RemoveAt(i);
+                            comboBoxName.Items.Remove(comboBoxName.SelectedItem);
+                            comboBoxName.Text = "";
+                            richTextBox.Clear();
+                            dateTimePicker.Value = dateTimePicker.MinDate;
+                        }
                     }
                 }
-            }
 
-            if (comboBoxType.SelectedIndex == 1)
-            {
-                for (int i = 0; i < meetings.Count; i++)
+                if (comboBoxType.SelectedIndex == 1)
                 {
-                    if (meetings[i].getName() == comboBoxName.Text.ToString())
+                    for (int i = 0; i < meetings.Count; i++)
                     {
-                        meetings.RemoveAt(i);
-                        comboBoxName.Items.Remove(comboBoxName.SelectedItem);
-                        comboBoxName.Text = "";
-                        richTextBox.Clear();
-                        dateTimePicker.Value = dateTimePicker.MinDate;
+                        if (meetings[i].getName() == comboBoxName.Text.ToString())
+                        {
+                            meetings.RemoveAt(i);
+                            comboBoxName.Items.Remove(comboBoxName.SelectedItem);
+                            comboBoxName.Text = "";
+                            richTextBox.Clear();
+                            dateTimePicker.Value = dateTimePicker.MinDate;
+                        }
                     }
                 }
-            }
 
-            if (comboBoxType.SelectedIndex == 2)
-            {
-
-                for (int i = 0; i < assignments.Count; i++)
+                if (comboBoxType.SelectedIndex == 2)
                 {
-                    if (assignments[i].getName() == comboBoxName.Text.ToString())
+                    for (int i = 0; i < assignments.Count; i++)
                     {
-                        assignments.RemoveAt(i);
-                        comboBoxName.Items.Remove(comboBoxName.SelectedItem);
-                        comboBoxName.Text = "";
-                        richTextBox.Clear();
-                        dateTimePicker.Value = dateTimePicker.MinDate;
+                        if (assignments[i].getName() == comboBoxName.Text.ToString())
+                        {
+                            assignments.RemoveAt(i);
+                            comboBoxName.Items.Remove(comboBoxName.SelectedItem);
+                            comboBoxName.Text = "";
+                            richTextBox.Clear();
+                            dateTimePicker.Value = dateTimePicker.MinDate;
+                        }
+                    }
+                }
+
+                //rewrite file
+                using (StreamWriter writer = new StreamWriter(@".\\deadlines.txt"))
+                {
+                    for (int i = 0; i < panels.Count; i++)
+                    {
+                        writer.WriteLine(panels[i].getInfo());
+                    }
+                    for (int i = 0; i < meetings.Count; i++)
+                    {
+                        writer.WriteLine(meetings[i].getInfo());
+                    }
+                    for (int i = 0; i < assignments.Count; i++)
+                    {
+                        writer.WriteLine(assignments[i].getInfo());
                     }
                 }
             }
         }
         private void buttonAdd_Click(object sender, EventArgs e)
         {
-            StreamWriter write = new StreamWriter(@".\\deadlines.txt");
-
             //Validation
             if (comboBoxType.SelectedItem == null)
             {
@@ -220,64 +235,85 @@ namespace CourseworkManagmentApplication
             {
                 MessageBox.Show("Please select an item");
             }
-
-            var dueDate = dateTimePicker.Value.ToShortDateString();
-            var setDate = DateTime.Now.ToShortDateString();
-
-            if (comboBoxType.SelectedIndex == 0)
+            else
             {
+                //Add new items to the elements and write them to file
+                var dueDate = dateTimePicker.Value.ToShortDateString();
+                var setDate = DateTime.Now.ToShortDateString();
 
-                if (richTextBox.TextLength == 0)
+                if (comboBoxType.SelectedIndex == 0)
                 {
-                    panels.Add(new AdminPanel(comboBoxName.Text.ToString(), dueDate, setDate, ""));
-                }
-                else
-                {
-                    panels.Add(new AdminPanel(comboBoxName.Text.ToString(), dueDate, setDate, richTextBox.Text));
-                }
-                comboBoxName.Items.Add(comboBoxName.Text.ToString());
-                comboBoxName.Text = "";
-                richTextBox.Clear();
-                dateTimePicker.Value = dateTimePicker.MinDate;
-                MessageBox.Show("Item has been added");
-            }
 
-            if (comboBoxType.SelectedIndex == 1)
-            {
-                if (richTextBox.TextLength == 0)
-                {
-                    meetings.Add(new AdminMeeting(comboBoxName.Text.ToString(), dueDate, setDate, ""));
-                }
-                else
-                {
-                    meetings.Add(new AdminMeeting(comboBoxName.Text.ToString(), dueDate, setDate, richTextBox.Text));
+                    if (richTextBox.TextLength == 0)
+                    {
+                        panels.Add(new AdminPanel(comboBoxName.Text.ToString(), dueDate, setDate, ""));
+                    }
+                    else
+                    {
+                        panels.Add(new AdminPanel(comboBoxName.Text.ToString(), dueDate, setDate, richTextBox.Text));
+                    }
+                    comboBoxName.Items.Add(comboBoxName.Text.ToString());
+                    comboBoxName.Text = "";
+                    richTextBox.Clear();
+                    dateTimePicker.Value = dateTimePicker.MinDate;
+                    MessageBox.Show("Item has been added");
+
+                    int index = panels.Count - 1;
+                    using (StreamWriter writer = new StreamWriter(@".\\deadlines.txt", true))
+                    {
+                        writer.WriteLine(panels[index].getInfo(), Environment.NewLine);
+                    }
+
                 }
 
-                comboBoxName.Items.Add(comboBoxName.Text.ToString());
-                comboBoxName.Text = "";
-                richTextBox.Clear();
-                dateTimePicker.Value = dateTimePicker.MinDate;
-                MessageBox.Show("Item has been added");
-            }
+                if (comboBoxType.SelectedIndex == 1)
+                {
+                    if (richTextBox.TextLength == 0)
+                    {
+                        meetings.Add(new AdminMeeting(comboBoxName.Text.ToString(), dueDate, setDate, ""));
+                    }
+                    else
+                    {
+                        meetings.Add(new AdminMeeting(comboBoxName.Text.ToString(), dueDate, setDate, richTextBox.Text));
+                    }
 
-            if (comboBoxType.SelectedIndex == 2)
-            {
-                if (richTextBox.TextLength == 0)
-                {
-                    assignments.Add(new Assignment(comboBoxName.Text.ToString(), dueDate, setDate, ""));
+                    comboBoxName.Items.Add(comboBoxName.Text.ToString());
+                    comboBoxName.Text = "";
+                    richTextBox.Clear();
+                    dateTimePicker.Value = dateTimePicker.MinDate;
+                    MessageBox.Show("Item has been added");
+
+                    int index = meetings.Count - 1;
+                    using (StreamWriter writer = new StreamWriter(@".\\deadlines.txt", true))
+                    {
+                        writer.WriteLine(meetings[index].getInfo(), Environment.NewLine);
+                    }
                 }
-                else
+
+                if (comboBoxType.SelectedIndex == 2)
                 {
-                    assignments.Add(new Assignment(comboBoxName.Text.ToString(), dueDate, setDate, richTextBox.Text));
+                    if (richTextBox.TextLength == 0)
+                    {
+                        assignments.Add(new Assignment(comboBoxName.Text.ToString(), dueDate, setDate, ""));
+                    }
+                    else
+                    {
+                        assignments.Add(new Assignment(comboBoxName.Text.ToString(), dueDate, setDate, richTextBox.Text));
+                    }
+                    comboBoxName.Items.Add(comboBoxName.Text.ToString());
+                    comboBoxName.Text = "";
+                    richTextBox.Clear();
+                    dateTimePicker.Value = dateTimePicker.MinDate;
+                    MessageBox.Show("Item has been added");
+
+                    int index = assignments.Count - 1;
+                    using (StreamWriter writer = new StreamWriter(@".\\deadlines.txt", true))
+                    {
+                        writer.WriteLine(assignments[index].getInfo(), Environment.NewLine);
+                    }
                 }
-                comboBoxName.Items.Add(comboBoxName.Text.ToString());
-                comboBoxName.Text = "";
-                richTextBox.Clear();
-                dateTimePicker.Value = dateTimePicker.MinDate;
-                MessageBox.Show("Item has been added");
             }
         }
-
         private void buttonUpdate_Click(object sender, EventArgs e)
         {
             //Validation

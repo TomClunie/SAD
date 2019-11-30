@@ -60,6 +60,11 @@ namespace CourseworkManagmentApplication
             return "Assignment";
         }
 
+        public string getInfo()
+        {
+            return "Assignment," + name + "," + dueDate + "," + setDate + "," + comment;
+        }
+
     }
 
     class AdminPanel : DeadlineClasses
@@ -79,6 +84,11 @@ namespace CourseworkManagmentApplication
         {
             return "Admin: Administer Panel";
         }
+
+        public string getInfo()
+        {
+            return "Admin: Administer Panel," + name + "," + dueDate + "," + setDate + "," + comment;
+        }
     }
 
     class AdminMeeting : DeadlineClasses
@@ -96,6 +106,11 @@ namespace CourseworkManagmentApplication
         public string getType()
         {
             return "Admin: Book Meeting Room";
+        }
+
+        public string getInfo()
+        {
+            return "Admin: Book Meeting Room," + name + "," + dueDate + "," + setDate + "," + comment;
         }
     }
 }
