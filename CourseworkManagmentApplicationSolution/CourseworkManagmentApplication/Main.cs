@@ -51,7 +51,8 @@ namespace CourseworkManagmentApplication
 
         private void buttonViewAssessmentStrategy_Click(object sender, EventArgs e)
         {
-            
+            //Takes you to the webpage where you can view the assessment strategy, in this case we have used the canvas website as a placeholder URL
+            System.Diagnostics.Process.Start("https://canvas.hull.ac.uk/");
         }
 
         private void Main_Load(object sender, EventArgs e)
