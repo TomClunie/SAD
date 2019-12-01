@@ -13,6 +13,7 @@ namespace CourseworkManagmentApplication
 {
     public partial class Deadlines : Form
     {
+        //Deadline lists
         List<AdminPanel> panels = new List<AdminPanel>();
         List<AdminMeeting> meetings = new List<AdminMeeting>();
         List<Assignment> assignments = new List<Assignment>();
@@ -24,7 +25,7 @@ namespace CourseworkManagmentApplication
 
         private void Deadlines_Load(object sender, EventArgs e)
         {
-            //set initial date time picker value
+            //Set initial date time picker value
             dateTimePicker.Value = dateTimePicker.MinDate;
 
             //Load and save deadlines to lists
@@ -112,7 +113,7 @@ namespace CourseworkManagmentApplication
             }
         }
 
-        //display information for each selected item
+        //Display information for each selected item
         private void comboBoxName_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (comboBoxType.SelectedIndex == 0)
@@ -206,7 +207,7 @@ namespace CourseworkManagmentApplication
                     }
                 }
 
-                //rewrite file
+                //Rewrite file
                 using (StreamWriter writer = new StreamWriter(@".\\deadlines.txt"))
                 {
                     for (int i = 0; i < panels.Count; i++)
@@ -312,18 +313,6 @@ namespace CourseworkManagmentApplication
                         writer.WriteLine(assignments[index].getInfo(), Environment.NewLine);
                     }
                 }
-            }
-        }
-        private void buttonUpdate_Click(object sender, EventArgs e)
-        {
-            //Validation
-            if (comboBoxType.SelectedItem == null)
-            {
-                MessageBox.Show("Please select an item");
-            }
-            else if (comboBoxName.Text.ToString() == "")
-            {
-                MessageBox.Show("Please select an item");
             }
         }
     }

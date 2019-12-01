@@ -30,7 +30,6 @@
         {
             this.richTextBox = new System.Windows.Forms.RichTextBox();
             this.dateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.buttonUpdate = new System.Windows.Forms.Button();
             this.buttonRemove = new System.Windows.Forms.Button();
             this.comboBoxType = new System.Windows.Forms.ComboBox();
             this.comboBoxName = new System.Windows.Forms.ComboBox();
@@ -55,16 +54,6 @@
             this.dateTimePicker.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker.TabIndex = 11;
             this.dateTimePicker.Value = new System.DateTime(2019, 11, 27, 0, 0, 0, 0);
-            // 
-            // buttonUpdate
-            // 
-            this.buttonUpdate.Location = new System.Drawing.Point(148, 388);
-            this.buttonUpdate.Name = "buttonUpdate";
-            this.buttonUpdate.Size = new System.Drawing.Size(87, 31);
-            this.buttonUpdate.TabIndex = 6;
-            this.buttonUpdate.Text = "Update";
-            this.buttonUpdate.UseVisualStyleBackColor = true;
-            this.buttonUpdate.Click += new System.EventHandler(this.buttonUpdate_Click);
             // 
             // buttonRemove
             // 
@@ -118,7 +107,6 @@
             this.Controls.Add(this.comboBoxName);
             this.Controls.Add(this.comboBoxType);
             this.Controls.Add(this.buttonRemove);
-            this.Controls.Add(this.buttonUpdate);
             this.Controls.Add(this.dateTimePicker);
             this.Controls.Add(this.richTextBox);
             this.Name = "Deadlines";
@@ -133,7 +121,6 @@
 
         private System.Windows.Forms.RichTextBox richTextBox;
         private System.Windows.Forms.DateTimePicker dateTimePicker;
-        private System.Windows.Forms.Button buttonUpdate;
         private System.Windows.Forms.Button buttonRemove;
         private System.Windows.Forms.ComboBox comboBoxType;
         private System.Windows.Forms.ComboBox comboBoxName;
