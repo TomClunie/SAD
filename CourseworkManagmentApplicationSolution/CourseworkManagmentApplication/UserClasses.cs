@@ -8,6 +8,8 @@ namespace CourseworkManagmentApplication
 {
     class User
     {
+        public static List<User> listOfUsers = new List<User>();
+
         protected string username;
         protected string name;
 
@@ -21,6 +23,11 @@ namespace CourseworkManagmentApplication
         public string getName()
         {
             return name;
+        }
+
+        public string getUsername()
+        {
+            return username;
         }
     }
 

@@ -11,17 +11,20 @@ namespace CourseworkManagmentApplication
         protected string name;
         protected string dueDate;
         protected string setDate;
+        protected string username;
         protected string comment;
 
-        public DeadlineClasses(string name, string dueDate, string setDate)
+        public DeadlineClasses(string name,string username, string dueDate, string setDate)
         {
             this.name = name;
+            this.username = username;
             this.dueDate = dueDate;
             this.setDate = setDate;
         }
-        public DeadlineClasses(string name, string dueDate, string setDate, string comment)
+        public DeadlineClasses(string name, string username, string dueDate, string setDate, string comment)
         {
             this.name = name;
+            this.username = username;
             this.dueDate = dueDate;
             this.setDate = setDate;
             this.comment = comment;
@@ -41,16 +44,21 @@ namespace CourseworkManagmentApplication
         {
             return comment;
         }
+
+        public string getUser()
+        {
+            return username;
+        }
     }
 
     class Assignment : DeadlineClasses
     {
-        public Assignment(string name, string dueDate, string setDate) : base(name, dueDate, setDate)
+        public Assignment(string name, string username, string dueDate, string setDate) : base(name, username, dueDate, setDate)
         {
 
         }
 
-        public Assignment(string name, string dueDate, string setDate, string comment) : base(name, dueDate, setDate, comment)
+        public Assignment(string name, string username, string dueDate, string setDate, string comment) : base(name, username, dueDate, setDate, comment)
         {
 
         }
@@ -62,19 +70,19 @@ namespace CourseworkManagmentApplication
 
         public string getInfo()
         {
-            return "Assignment," + name + "," + dueDate + "," + setDate + "," + comment;
+            return "Assignment," + name + "," + username + "," + dueDate + "," + setDate + "," + comment;
         }
 
     }
 
     class AdminPanel : DeadlineClasses
     {
-        public AdminPanel(string name, string dueDate, string setDate) : base(name, dueDate, setDate)
+        public AdminPanel(string name, string username, string dueDate, string setDate) : base(name, username, dueDate, setDate)
         {
 
         }
 
-        public AdminPanel(string name, string dueDate, string setDate, string comment) : base(name, dueDate, setDate, comment)
+        public AdminPanel(string name, string username, string dueDate, string setDate, string comment) : base(name, username, dueDate, setDate, comment)
         {
         
 
@@ -87,18 +95,18 @@ namespace CourseworkManagmentApplication
 
         public string getInfo()
         {
-            return "Admin: Administer Panel," + name + "," + dueDate + "," + setDate + "," + comment;
+            return "Admin: Administer Panel," + name + "," + username + "," + dueDate + "," + setDate + "," + comment;
         }
     }
 
     class AdminMeeting : DeadlineClasses
     {
-        public AdminMeeting(string name, string dueDate, string setDate) : base(name, dueDate, setDate)
+        public AdminMeeting(string name, string username, string dueDate, string setDate) : base(name, username, dueDate, setDate)
         {
 
         }
 
-        public AdminMeeting(string name, string dueDate, string setDate, string comment) : base(name, dueDate, setDate, comment)
+        public AdminMeeting(string name, string username, string dueDate, string setDate, string comment) : base(name, username, dueDate, setDate, comment)
         {
 
         }
@@ -110,7 +118,7 @@ namespace CourseworkManagmentApplication
 
         public string getInfo()
         {
-            return "Admin: Book Meeting Room," + name + "," + dueDate + "," + setDate + "," + comment;
+            return "Admin: Book Meeting Room," + name + "," + username + "," + dueDate + "," + setDate + "," + comment;
         }
     }
 }

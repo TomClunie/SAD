@@ -34,6 +34,7 @@
             this.comboBoxType = new System.Windows.Forms.ComboBox();
             this.comboBoxName = new System.Windows.Forms.ComboBox();
             this.buttonAdd = new System.Windows.Forms.Button();
+            this.comboBoxUser = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // richTextBox
@@ -73,7 +74,7 @@
             "Admin: Administer Panel",
             "Admin: Book Meeting Room",
             "Assignment"});
-            this.comboBoxType.Location = new System.Drawing.Point(35, 61);
+            this.comboBoxType.Location = new System.Drawing.Point(35, 12);
             this.comboBoxType.Name = "comboBoxType";
             this.comboBoxType.Size = new System.Drawing.Size(310, 21);
             this.comboBoxType.TabIndex = 8;
@@ -82,7 +83,7 @@
             // comboBoxName
             // 
             this.comboBoxName.FormattingEnabled = true;
-            this.comboBoxName.Location = new System.Drawing.Point(35, 88);
+            this.comboBoxName.Location = new System.Drawing.Point(35, 39);
             this.comboBoxName.Name = "comboBoxName";
             this.comboBoxName.Size = new System.Drawing.Size(310, 21);
             this.comboBoxName.TabIndex = 9;
@@ -98,11 +99,21 @@
             this.buttonAdd.UseVisualStyleBackColor = true;
             this.buttonAdd.Click += new System.EventHandler(this.buttonAdd_Click);
             // 
+            // comboBoxUser
+            // 
+            this.comboBoxUser.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxUser.FormattingEnabled = true;
+            this.comboBoxUser.Location = new System.Drawing.Point(35, 98);
+            this.comboBoxUser.Name = "comboBoxUser";
+            this.comboBoxUser.Size = new System.Drawing.Size(310, 21);
+            this.comboBoxUser.TabIndex = 13;
+            // 
             // Deadlines
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(375, 459);
+            this.Controls.Add(this.comboBoxUser);
             this.Controls.Add(this.buttonAdd);
             this.Controls.Add(this.comboBoxName);
             this.Controls.Add(this.comboBoxType);
@@ -125,5 +136,6 @@
         private System.Windows.Forms.ComboBox comboBoxType;
         private System.Windows.Forms.ComboBox comboBoxName;
         private System.Windows.Forms.Button buttonAdd;
+        private System.Windows.Forms.ComboBox comboBoxUser;
     }
 }
