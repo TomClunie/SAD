@@ -84,6 +84,7 @@
             this.Name = "UpdateScrutiny";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UpdateScrutiny";
+            this.Load += new System.EventHandler(this.UpdateScrutiny_Load);
             this.ResumeLayout(false);
 
         }
