@@ -17,19 +17,20 @@ namespace CourseworkManagmentApplication
         {
             InitializeComponent();
         }
-        public static string cUser = "";
+        public static string cUser = ""; // Declaring a current user variable.
 
         // Creating arrays with some preset values.
         string[] username = { "Callum", "Tom" };
         string[] password = { "admin", "loser" };
 
         // Pre-defining the user types to moderate accessibility in an array.
-        string[] type = { "DoS", "Lec", "ModLead", "Moderator", "ProgDirector", "facHub" };
+        string[] type = { "Director of Study", "Academic", "Module Leader", "Moderator", "Programme Director", "Faculty Hub" };
 
         // Converting the usernames and passwords into lists of strings.
         List<string> users = new List<string>();
         List<string> pass = new List<string>();
         List<string> types = new List<string>();
+
         private void button1_Click(object sender, EventArgs e) // Login Button
         {
             // If the username & password entered in the textboxes matches the values in the array, this statement is ran.
@@ -136,6 +137,43 @@ namespace CourseworkManagmentApplication
                 types.Add(components[2]); // Adding the third component of the line to the list of user types.
             }
             sr.Close(); // End StreamReader
+
+            //Read and save users
+            StreamReader userReader = new StreamReader("users.txt");
+
+            while ((line = userReader.ReadLine()) != null)
+            {
+                string[] bits = line.Split(',');
+                if (bits.Length == 4)
+                {
+                    if (bits[2] == "Director Of Study")
+                    {
+                        User.listOfUsers.Add(new DirectorOfStudy(bits[0], bits[2]));
+                    }
+                    if (bits[2] == "Programme Director")
+                    {
+                        User.listOfUsers.Add(new ProgrammeDirector(bits[0], bits[2]));
+                    }
+                    if (bits[2] == "Module Leader")
+                    {
+                        User.listOfUsers.Add(new ModuleLeader(bits[0], bits[2]));
+                    }
+                    if (bits[2] == "Academic")
+                    {
+                        User.listOfUsers.Add(new Academic(bits[0], bits[2]));
+                    }
+                    if (bits[2] == "Moderator")
+                    {
+                        User.listOfUsers.Add(new Moderator(bits[0], bits[2]));
+                    }
+                    if (bits[2] == "Faculty Hub")
+                    {
+                        User.listOfUsers.Add(new FacultyHub(bits[0], bits[2]));
+                    }
+                }
+            }
+
+            userReader.Close();
         }
     }
 }

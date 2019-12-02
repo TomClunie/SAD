@@ -90,7 +90,7 @@ namespace CourseworkManagmentApplication
                     {
                         User.listOfUsers.Add(new ProgrammeDirector(bits[0], bits[1]));
                     }
-                    if (bits[2] == "ModuleLeader")
+                    if (bits[2] == "Module Leader")
                     {
                         User.listOfUsers.Add(new ModuleLeader(bits[0], bits[1]));
                     }
