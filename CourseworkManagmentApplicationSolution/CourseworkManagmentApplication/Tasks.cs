@@ -22,21 +22,19 @@ namespace CourseworkManagmentApplication
         private void Tasks_Load(object sender, EventArgs e)
         {
             string line;
+
             textBox1.Text = currentUser;
             StreamReader reader = new StreamReader(@".\\deadlines.txt");
 
             while ((line = reader.ReadLine()) != null)
             {
-                if (line.Contains(currentUser))
+                string[] bits = line.Split(',');
+
+                if (bits[2] == currentUser)
                 {
-                    listBox1.Items.Add(line);
-                }
-                else
-                {
-                    listBox1.Items.Remove(line);
+                    listBoxTasks.Items.Add(bits[0] + ", " + bits[1] + ", Comments: " + bits[5]);
                 }
             }
-
         }
     }
 }
