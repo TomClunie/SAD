@@ -24,11 +24,12 @@ namespace CourseworkManagmentApplication
         string[] password = { "admin", "loser" };
 
         // Pre-defining the user types to moderate accessibility in an array.
-        string[] type = { "Director of Study", "Academic", "Module Leader", "Moderator", "Programme Director", "Faculty Hub" };
+        string[] type = { "Director Of Study", "Academic", "Module Leader", "Moderator", "Programme Director", "Faculty Hub" };
 
         // Converting the usernames and passwords into lists of strings.
         List<string> users = new List<string>();
         List<string> pass = new List<string>();
+        List<string> name = new List<string>();
         List<string> types = new List<string>();
 
         private void button1_Click(object sender, EventArgs e) // Login Button
@@ -36,7 +37,6 @@ namespace CourseworkManagmentApplication
             // If the username & password entered in the textboxes matches the values in the array, this statement is ran.
             if (username.Contains(usernameBox.Text) && password.Contains(passwordBox.Text) && Array.IndexOf(username, usernameBox.Text) == Array.IndexOf(password, passwordBox.Text))
             {
-
                 /* string displayTypes = string.Join(Environment.NewLine, types);
                 MessageBox.Show(displayTypes); */
                 cUser = usernameBox.Text;
@@ -123,6 +123,50 @@ namespace CourseworkManagmentApplication
                 MessageBox.Show("The credentials you entered are invalid!");
         }
 
+        /* private void Form1_Load(object sender, EventArgs e) // On original form load.
+        {
+            StreamReader sr = new StreamReader("users.txt"); // The data file name and extension.
+            string line = null;
+            // While the line isn't blank.
+            while ((line = sr.ReadLine()) != null)
+            {
+                // Seperating the usernames and passwords that are saved on the same line.
+                string[] components = line.Split(",".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+                users.Add(components[0]); // Adding the first component of the line to the list of usernames.
+                pass.Add(components[1]); // Adding the second component of the line to the list of passwords.
+                types.Add(components[3]); // Adding the third component of the line to the list of user types.
+
+                if (components.Length == 4)
+                {
+                    if (components[3] == "Director Of Study")
+                    {
+                        User.listOfUsers.Add(new DirectorOfStudy(components[0], components[2]));
+                    }
+                    if (components[3] == "Programme Director")
+                    {
+                        User.listOfUsers.Add(new ProgrammeDirector(components[0], components[2]));
+                    }
+                    if (components[3] == "Module Leader")
+                    {
+                        User.listOfUsers.Add(new ModuleLeader(components[0], components[2]));
+                    }
+                    if (components[3] == "Academic")
+                    {
+                        User.listOfUsers.Add(new Academic(components[0], components[2]));
+                    }
+                    if (components[3] == "Moderator")
+                    {
+                        User.listOfUsers.Add(new Moderator(components[0], components[2]));
+                    }
+                    if (components[3] == "Faculty Hub")
+                    {
+                        User.listOfUsers.Add(new FacultyHub(components[0], components[2]));
+                    }
+                }
+            }
+            sr.Close(); // End StreamReader
+        } */
+
         private void Form1_Load(object sender, EventArgs e) // On original form load.
         {
             StreamReader sr = new StreamReader("users.txt"); // The data file name and extension.
@@ -134,46 +178,44 @@ namespace CourseworkManagmentApplication
                 string[] components = line.Split(",".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
                 users.Add(components[0]); // Adding the first component of the line to the list of usernames.
                 pass.Add(components[1]); // Adding the second component of the line to the list of passwords.
-                types.Add(components[2]); // Adding the third component of the line to the list of user types.
-            }
-            sr.Close(); // End StreamReader
+                name.Add(components[2]); // Adding the third comement of the line to the list of names.
+                types.Add(components[3]); // Adding the fourth component of the line to the list of user types.
 
-            //Read and save users
-            StreamReader userReader = new StreamReader("users.txt");
-
-            while ((line = userReader.ReadLine()) != null)
-            {
                 string[] bits = line.Split(',');
                 if (bits.Length == 4)
                 {
-                    if (bits[2] == "Director Of Study")
+                    if (bits[3] == "Director Of Study")
                     {
                         User.listOfUsers.Add(new DirectorOfStudy(bits[0], bits[2]));
                     }
-                    if (bits[2] == "Programme Director")
+                    if (bits[3] == "Programme Director")
                     {
                         User.listOfUsers.Add(new ProgrammeDirector(bits[0], bits[2]));
                     }
-                    if (bits[2] == "Module Leader")
+                    if (bits[3] == "Module Leader")
                     {
                         User.listOfUsers.Add(new ModuleLeader(bits[0], bits[2]));
                     }
-                    if (bits[2] == "Academic")
+                    if (bits[3] == "Academic")
                     {
                         User.listOfUsers.Add(new Academic(bits[0], bits[2]));
                     }
-                    if (bits[2] == "Moderator")
+                    if (bits[3] == "Moderator")
                     {
                         User.listOfUsers.Add(new Moderator(bits[0], bits[2]));
                     }
-                    if (bits[2] == "Faculty Hub")
+                    if (bits[3] == "Faculty Hub")
                     {
                         User.listOfUsers.Add(new FacultyHub(bits[0], bits[2]));
                     }
                 }
             }
+            sr.Close(); // End StreamReader
+        }
 
-            userReader.Close();
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
