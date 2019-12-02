@@ -130,7 +130,7 @@ namespace CourseworkManagmentApplication
             while ((line = sr.ReadLine()) != null)
             {
                 // Seperating the usernames and passwords that are saved on the same line.
-                string[] components = line.Split(" ".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
+                string[] components = line.Split(",".ToCharArray(), StringSplitOptions.RemoveEmptyEntries);
                 users.Add(components[0]); // Adding the first component of the line to the list of usernames.
                 pass.Add(components[1]); // Adding the second component of the line to the list of passwords.
                 types.Add(components[2]); // Adding the third component of the line to the list of user types.
