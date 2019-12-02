@@ -448,5 +448,10 @@ namespace CourseworkManagmentApplication
                 }
             }
         }
+
+        private void labelDueDate_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
