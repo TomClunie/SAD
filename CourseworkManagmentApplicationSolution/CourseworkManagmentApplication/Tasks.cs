@@ -17,16 +17,26 @@ namespace CourseworkManagmentApplication
         {
             InitializeComponent();
         }
+        string currentUser = Form1.cUser;
 
         private void Tasks_Load(object sender, EventArgs e)
         {
             string line;
+            textBox1.Text = currentUser;
             StreamReader reader = new StreamReader(@".\\deadlines.txt");
 
             while ((line = reader.ReadLine()) != null)
             {
-                listBox1.Items.Add(line);
+                if (line.Contains(currentUser))
+                {
+                    listBox1.Items.Add(line);
+                }
+                else
+                {
+                    listBox1.Items.Remove(line);
+                }
             }
+
         }
     }
 }

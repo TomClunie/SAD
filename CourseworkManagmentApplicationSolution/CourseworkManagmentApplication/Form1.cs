@@ -17,6 +17,8 @@ namespace CourseworkManagmentApplication
         {
             InitializeComponent();
         }
+        public static string cUser = "";
+
         // Creating arrays with some preset values.
         string[] username = { "Callum", "Tom" };
         string[] password = { "admin", "loser" };
@@ -36,7 +38,7 @@ namespace CourseworkManagmentApplication
 
                 /* string displayTypes = string.Join(Environment.NewLine, types);
                 MessageBox.Show(displayTypes); */
-
+                cUser = usernameBox.Text;
                 Main mainForm = new Main(); // Creating an instance of the second window.
                 mainForm.ShowDialog(); // Opening the main application page.
                 this.Visible = false; // Closing the login page.
@@ -52,6 +54,7 @@ namespace CourseworkManagmentApplication
                 // Checking if the user is the director of studies.
                 if (j == type[0])
                 {
+                    cUser = usernameBox.Text;
                     //MessageBox.Show("Dos");
                     Main mainForm = new Main(); // Creating an instance of the second window.
                     mainForm.Show(); // Opening the main application page.
@@ -62,6 +65,7 @@ namespace CourseworkManagmentApplication
                 // Checking if the user is a lecturer.
                 else if (j == type[1])
                 {
+                    cUser = usernameBox.Text;
                     Main mainForm = new Main(); // Creating an instance of the second window.
                     this.Visible = false; // Setting the login form to invisible.
                     mainForm.Show(); // Opening the main application page.
@@ -72,6 +76,7 @@ namespace CourseworkManagmentApplication
                 // Checking if the user is a module leader.
                 else if (j == type[2])
                 {
+                    cUser = usernameBox.Text;
                     Main mainForm = new Main(); // Creating an instance of the second window.
                     this.Visible = false; // Setting the login form to invisible.
                     mainForm.Show(); // Opening the main application page.
@@ -81,6 +86,7 @@ namespace CourseworkManagmentApplication
                 // Checking if the user is a moderator.
                 else if (j == type[3])
                 {
+                    cUser = usernameBox.Text;
                     Main mainForm = new Main(); // Creating an instance of the second window.
                     this.Visible = false; // Setting the login form to invisible.
                     mainForm.Show(); // Opening the main application page.
@@ -91,6 +97,7 @@ namespace CourseworkManagmentApplication
                 // Checking if the user is a program director.
                 else if (j == type[4])
                 {
+                    cUser = usernameBox.Text;
                     Main mainForm = new Main(); // Creating an instance of the second window.
                     this.Visible = false; // Setting the login form to invisible.
                     mainForm.Show(); // Opening the main application page.
@@ -101,6 +108,7 @@ namespace CourseworkManagmentApplication
                 // Checking if the user is a member of the faculty hub.
                 else if (j == type[5])
                 {
+                    cUser = usernameBox.Text;
                     Main mainForm = new Main(); // Creating an instance of the second window.
                     this.Visible = false; // Setting the login form to invisible.
                     mainForm.Show(); // Opening the main application page.
