@@ -32,7 +32,7 @@ namespace CourseworkManagmentApplication
 
                 if (bits[2] == currentUser)
                 {
-                    listBoxTasks.Items.Add(bits[0] + ", " + bits[1] + ", Comments: " + bits[5]);
+                    listBoxTasks.Items.Add(bits[0] + ", " + bits[1] + ", " + bits[3] +", Comments: " + bits[5]);
                 }
             }
         }
