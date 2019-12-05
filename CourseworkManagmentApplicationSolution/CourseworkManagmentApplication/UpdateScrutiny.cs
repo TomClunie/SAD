@@ -17,21 +17,65 @@ namespace CourseworkManagmentApplication
         {
             InitializeComponent();
         }
-        string currentUser = Form1.cUser;        
-
+        string currentUser = Form1.cUser;
+        public string bLine;
+        public string bLine1;
+        public string bLine2;
         private void UpdateScrutiny_Load(object sender, EventArgs e)
         {
-            string line;
-            string cLine;
-            string moduleLeaderLine;
-            string moderatorLine;
-            string panelLine;
-            string externalExaminerLine;
-            StreamReader reader = new StreamReader(@".\\users.txt"); //Reading data from users.txt to validate current user & type
-            
+            comboBox1.Items.Add("Assessment 1");
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var text = listBox1.SelectedItem.ToString();
+            var ass = comboBox1.SelectedItem.ToString();
+            using (StreamWriter writer = new StreamWriter(@".\\ScrutinyComplete.txt", true))
+            {
+                writer.WriteLine(text + "," + ass);
+                writer.Close();
+            }
+            listBox1.Items.Remove(text);
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            if (listBox1.Items.Count == 0)
+            {
+                string line;
+                string moderatorLine;
+                StreamReader reader = new StreamReader(@".\\users.txt"); //Reading data from users.txt to validate current user & type
+
+                while ((line = reader.ReadLine()) != null)
+                {
+                    if (line.Contains(currentUser) && line.Contains("Moderator"))
+                    {
+                        StreamReader completeReader2 = new StreamReader(@".\\ScrutinyComplete.txt");
+                        StreamReader moderatorReader = new StreamReader(@".\\ModeratorChecklist.txt");
+                        while ((moderatorLine = moderatorReader.ReadLine()) != null)
+                        {
+                            listBox1.Items.Add(moderatorLine);
+                        }
+                        while ((moderatorLine = completeReader2.ReadLine()) != null)
+                        {
+                            string[] components = line.Split(',');
+                            string one = components[0];
+                            string two = components[1];
+
+                            if (moderatorLine.Contains(one) && moderatorLine.Contains(two))
+                            {
+                                listBox1.Items.Remove(moderatorLine);
+                            }
+                        }
+                        completeReader2.Close();
+                    }
+                }
 
 
-            while ((line = reader.ReadLine()) != null) //loop through each line in users.txt
+                /*
+                 * while ((line = reader.ReadLine()) != null) //loop through each line in users.txt
             {
                 //Module Leader Checklist
                 if (line.Contains(currentUser) && line.Contains("Module Leader")) //If that line contains the current username & is a module leader type
@@ -98,21 +142,8 @@ namespace CourseworkManagmentApplication
                     completeReader4.Close();
                 }
             }
-
-            
-
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            var text = listBox1.SelectedItem.ToString();
-            using (StreamWriter writer = new StreamWriter(@".\\ScrutinyComplete.txt", true))
-            {
-                writer.WriteLine(text);
-                writer.Close();
+                 */
             }
-            listBox1.Items.Remove(text);
-            
         }
     }
 }
