@@ -8,6 +8,10 @@ namespace CourseworkManagmentApplication
 {
     class DeadlineClasses
     {
+        public static List<AdminPanel> panels = new List<AdminPanel>();
+        public static List<AdminMeeting> meetings = new List<AdminMeeting>();
+        public static List<Assignment> assignments = new List<Assignment>();
+
         protected string name;
         protected string dueDate;
         protected string setDate;

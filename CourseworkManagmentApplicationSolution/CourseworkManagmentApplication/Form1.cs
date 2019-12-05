@@ -211,6 +211,52 @@ namespace CourseworkManagmentApplication
                 }
             }
             sr.Close(); // End StreamReader
+
+            //Load and save deadlines to lists
+            string bitLine;
+            StreamReader reader = new StreamReader(@".\\deadlines.txt");
+
+            while ((bitLine = reader.ReadLine()) != null)
+            {
+                string[] bits = bitLine.Split(',');
+
+                if (bits[0] == "Admin: Administer Panel")
+                {
+                    if (bits.Length == 6)
+                    {
+                        DeadlineClasses.panels.Add(new AdminPanel(bits[1], bits[2], bits[3], bits[4], bits[5]));
+                    }
+                    else
+                    {
+                        DeadlineClasses.panels.Add(new AdminPanel(bits[1], bits[2], bits[3], bits[4], ""));
+                    }
+                }
+
+                if (bits[0] == "Admin: Book Meeting Room")
+                {
+                    if (bits.Length == 6)
+                    {
+                        DeadlineClasses.meetings.Add(new AdminMeeting(bits[1], bits[2], bits[3], bits[4], bits[5]));
+                    }
+                    else
+                    {
+                        DeadlineClasses.meetings.Add(new AdminMeeting(bits[1], bits[2], bits[3], bits[4], ""));
+                    }
+                }
+
+                if (bits[0] == "Assignment")
+                {
+                    if (bits.Length == 6)
+                    {
+                        DeadlineClasses.assignments.Add(new Assignment(bits[1], bits[2], bits[3], bits[4], bits[5]));
+                    }
+                    else
+                    {
+                        DeadlineClasses.assignments.Add(new Assignment(bits[1], bits[2], bits[3], bits[4], ""));
+                    }
+                }
+            }
+            reader.Close();
         }
 
         private void button2_Click(object sender, EventArgs e)

@@ -14,9 +14,9 @@ namespace CourseworkManagmentApplication
     public partial class Deadlines : Form
     {
         //Deadline lists
-        List<AdminPanel> panels = new List<AdminPanel>();
-        List<AdminMeeting> meetings = new List<AdminMeeting>();
-        List<Assignment> assignments = new List<Assignment>();
+        //List<AdminPanel> panels = new List<AdminPanel>();
+        //List<AdminMeeting> meetings = new List<AdminMeeting>();
+        //List<Assignment> assignments = new List<Assignment>();
 
         public Deadlines()
         {
@@ -27,90 +27,6 @@ namespace CourseworkManagmentApplication
         {
             //Set initial date time picker value
             dateTimePicker.Value = DateTime.Now;
-
-            //Load and save deadlines to lists
-            string line;
-            StreamReader reader = new StreamReader(@".\\deadlines.txt");
-
-            while ((line = reader.ReadLine()) != null)
-            {
-                string[] bits = line.Split(',');
-
-                if (bits[0] == comboBoxType.Items[0].ToString())
-                {
-                    if (bits.Length == 6)
-                    {
-                        panels.Add(new AdminPanel(bits[1], bits[2], bits[3], bits[4], bits[5]));
-                    }
-                    else
-                    {
-                        panels.Add(new AdminPanel(bits[1], bits[2], bits[3], bits[4], ""));
-                    }
-                }
-
-                if (bits[0] == comboBoxType.Items[1].ToString())
-                {
-                    if (bits.Length == 6)
-                    {
-                        meetings.Add(new AdminMeeting(bits[1], bits[2], bits[3], bits[4], bits[5]));
-                    }
-                    else
-                    {
-                        meetings.Add(new AdminMeeting(bits[1], bits[2], bits[3], bits[4], ""));
-                    }
-                }
-
-                if (bits[0] == comboBoxType.Items[2].ToString())
-                {
-                    if (bits.Length == 6)
-                    {
-                        assignments.Add(new Assignment(bits[1], bits[2], bits[3], bits[4], bits[5]));
-                    }
-                    else
-                    {
-                        assignments.Add(new Assignment(bits[1], bits[2], bits[3], bits[4], ""));
-                    }
-                }
-            }
-            reader.Close();
-
-            //Read and save users
-            StreamReader userReader = new StreamReader(@".\\userz.txt");
-
-            while ((line = userReader.ReadLine()) != null)
-            {
-                string[] bits = line.Split(',');
-                if (bits.Length == 3)
-                {
-                    if (bits[2] == "Director Of Study")
-                    {
-                        User.listOfUsers.Add(new DirectorOfStudy(bits[0], bits[1]));
-                    }
-                    if (bits[2] == "Programme Director")
-                    {
-                        User.listOfUsers.Add(new ProgrammeDirector(bits[0], bits[1]));
-                    }
-                    if (bits[2] == "Module Leader")
-                    {
-                        User.listOfUsers.Add(new ModuleLeader(bits[0], bits[1]));
-                    }
-                    if (bits[2] == "Academic")
-                    {
-                        User.listOfUsers.Add(new Academic(bits[0], bits[1]));
-                    }
-                    if (bits[2] == "Moderator")
-                    {
-                        User.listOfUsers.Add(new Moderator(bits[0], bits[1]));
-                    }
-                    if (bits[2] == "Faculty Hub")
-                    {
-                        User.listOfUsers.Add(new FacultyHub(bits[0], bits[1]));
-                    }
-                }
-            }
-
-            userReader.Close();
-
         }
 
         private void comboBoxType_SelectedIndexChanged(object sender, EventArgs e)
@@ -126,9 +42,9 @@ namespace CourseworkManagmentApplication
             //Change contents of the 2nd combo box depending on which item is selected in the first combobox
             if (comboBoxType.SelectedIndex == 0)
             {       
-                for (int i = 0; i < panels.Count; i++)
+                for (int i = 0; i < DeadlineClasses.panels.Count; i++)
                 {
-                    comboBoxName.Items.Add(panels[i].getName());
+                    comboBoxName.Items.Add(DeadlineClasses.panels[i].getName());
                 }
                 for (int j = 0; j < User.listOfUsers.Count; j++)
                 {
@@ -141,9 +57,9 @@ namespace CourseworkManagmentApplication
 
             if (comboBoxType.SelectedIndex == 1)
             {
-                for (int i = 0; i < meetings.Count; i++)
+                for (int i = 0; i < DeadlineClasses.meetings.Count; i++)
                 {
-                    comboBoxName.Items.Add(meetings[i].getName());
+                    comboBoxName.Items.Add(DeadlineClasses.meetings[i].getName());
                 }
 
                 for (int j = 0; j < User.listOfUsers.Count; j++)
@@ -157,9 +73,9 @@ namespace CourseworkManagmentApplication
 
             if (comboBoxType.SelectedIndex == 2)
             {
-                for (int i = 0; i < assignments.Count; i++)
+                for (int i = 0; i < DeadlineClasses.assignments.Count; i++)
                 {
-                    comboBoxName.Items.Add(assignments[i].getName());
+                    comboBoxName.Items.Add(DeadlineClasses.assignments[i].getName());
                     
                 }
 
@@ -178,14 +94,14 @@ namespace CourseworkManagmentApplication
         {
             if (comboBoxType.SelectedIndex == 0)
             {
-                for (int i = 0; i < panels.Count; i++)
+                for (int i = 0; i < DeadlineClasses.panels.Count; i++)
                 {
-                    if (panels[i].getName() == comboBoxName.Text.ToString())
+                    if (DeadlineClasses.panels[i].getName() == comboBoxName.Text.ToString())
                     {
-                        richTextBox.Text = panels[i].getComment();
-                        dateTimePicker.Value = DateTime.Parse(panels[i].getDueDate());
+                        richTextBox.Text = DeadlineClasses.panels[i].getComment();
+                        dateTimePicker.Value = DateTime.Parse(DeadlineClasses.panels[i].getDueDate());
 
-                        var username = panels[i].getUser();
+                        var username = DeadlineClasses.panels[i].getUser();
 
                         for (int j = 0; j < User.listOfUsers.Count; j++)
                         {
@@ -200,14 +116,14 @@ namespace CourseworkManagmentApplication
 
             if (comboBoxType.SelectedIndex == 1)
             {
-                for (int i = 0; i < meetings.Count; i++)
+                for (int i = 0; i < DeadlineClasses.meetings.Count; i++)
                 {
-                    if (meetings[i].getName() == comboBoxName.Text.ToString())
+                    if (DeadlineClasses.meetings[i].getName() == comboBoxName.Text.ToString())
                     {
-                        richTextBox.Text = meetings[i].getComment();
-                        dateTimePicker.Value = DateTime.Parse(meetings[i].getDueDate());
+                        richTextBox.Text = DeadlineClasses.meetings[i].getComment();
+                        dateTimePicker.Value = DateTime.Parse(DeadlineClasses.meetings[i].getDueDate());
 
-                        var username = meetings[i].getUser();
+                        var username = DeadlineClasses.meetings[i].getUser();
 
                         for (int j = 0; j < User.listOfUsers.Count; j++)
                         {
@@ -222,14 +138,14 @@ namespace CourseworkManagmentApplication
 
             if (comboBoxType.SelectedIndex == 2)
             {
-                for (int i = 0; i < assignments.Count; i++)
+                for (int i = 0; i < DeadlineClasses.assignments.Count; i++)
                 {
-                    if (assignments[i].getName() == comboBoxName.Text.ToString())
+                    if (DeadlineClasses.assignments[i].getName() == comboBoxName.Text.ToString())
                     {
-                        richTextBox.Text = assignments[i].getComment();
-                        dateTimePicker.Value = DateTime.Parse(assignments[i].getDueDate());
+                        richTextBox.Text = DeadlineClasses.assignments[i].getComment();
+                        dateTimePicker.Value = DateTime.Parse(DeadlineClasses.assignments[i].getDueDate());
 
-                        var username = assignments[i].getUser();
+                        var username = DeadlineClasses.assignments[i].getUser();
 
                         for (int j = 0; j < User.listOfUsers.Count; j++)
                         {
@@ -254,11 +170,11 @@ namespace CourseworkManagmentApplication
                 //Removing items
                 if (comboBoxType.SelectedIndex == 0)
                 {
-                    for (int i = 0; i < panels.Count; i++)
+                    for (int i = 0; i < DeadlineClasses.panels.Count; i++)
                     {
-                        if (panels[i].getName() == comboBoxName.Text.ToString())
+                        if (DeadlineClasses.panels[i].getName() == comboBoxName.Text.ToString())
                         {
-                            panels.RemoveAt(i);
+                            DeadlineClasses.panels.RemoveAt(i);
                             comboBoxName.Items.Remove(comboBoxName.SelectedItem);
                             comboBoxName.Text = "";
                             comboBoxUser.Items.Remove(comboBoxUser.SelectedItem);
@@ -271,11 +187,11 @@ namespace CourseworkManagmentApplication
 
                 if (comboBoxType.SelectedIndex == 1)
                 {
-                    for (int i = 0; i < meetings.Count; i++)
+                    for (int i = 0; i < DeadlineClasses.meetings.Count; i++)
                     {
-                        if (meetings[i].getName() == comboBoxName.Text.ToString())
+                        if (DeadlineClasses.meetings[i].getName() == comboBoxName.Text.ToString())
                         {
-                            meetings.RemoveAt(i);
+                            DeadlineClasses.meetings.RemoveAt(i);
                             comboBoxName.Items.Remove(comboBoxName.SelectedItem);
                             comboBoxName.Text = "";
                             comboBoxUser.Items.Remove(comboBoxUser.SelectedItem);
@@ -288,11 +204,11 @@ namespace CourseworkManagmentApplication
 
                 if (comboBoxType.SelectedIndex == 2)
                 {
-                    for (int i = 0; i < assignments.Count; i++)
+                    for (int i = 0; i < DeadlineClasses.assignments.Count; i++)
                     {
-                        if (assignments[i].getName() == comboBoxName.Text.ToString())
+                        if (DeadlineClasses.assignments[i].getName() == comboBoxName.Text.ToString())
                         {
-                            assignments.RemoveAt(i);
+                            DeadlineClasses.assignments.RemoveAt(i);
                             comboBoxName.Items.Remove(comboBoxName.SelectedItem);
                             comboBoxName.Text = "";
                             comboBoxUser.Items.Remove(comboBoxUser.SelectedItem);
@@ -306,17 +222,17 @@ namespace CourseworkManagmentApplication
                 //Rewrite file
                 using (StreamWriter writer = new StreamWriter(@".\\deadlines.txt"))
                 {
-                    for (int i = 0; i < panels.Count; i++)
+                    for (int i = 0; i < DeadlineClasses.panels.Count; i++)
                     {
-                        writer.WriteLine(panels[i].getInfo());
+                        writer.WriteLine(DeadlineClasses.panels[i].getInfo());
                     }
-                    for (int i = 0; i < meetings.Count; i++)
+                    for (int i = 0; i < DeadlineClasses.meetings.Count; i++)
                     {
-                        writer.WriteLine(meetings[i].getInfo());
+                        writer.WriteLine(DeadlineClasses.meetings[i].getInfo());
                     }
-                    for (int i = 0; i < assignments.Count; i++)
+                    for (int i = 0; i < DeadlineClasses.assignments.Count; i++)
                     {
-                        writer.WriteLine(assignments[i].getInfo());
+                        writer.WriteLine(DeadlineClasses.assignments[i].getInfo());
                     }
                 }
             }
@@ -353,11 +269,11 @@ namespace CourseworkManagmentApplication
 
                     if (richTextBox.TextLength == 0)
                     {
-                        panels.Add(new AdminPanel(comboBoxName.Text.ToString(), username, dueDate, setDate, ""));
+                        DeadlineClasses.panels.Add(new AdminPanel(comboBoxName.Text.ToString(), username, dueDate, setDate, ""));
                     }
                     else
                     {
-                        panels.Add(new AdminPanel(comboBoxName.Text.ToString(), username, dueDate, setDate, richTextBox.Text));
+                        DeadlineClasses.panels.Add(new AdminPanel(comboBoxName.Text.ToString(), username, dueDate, setDate, richTextBox.Text));
                     }
 
                     comboBoxName.Items.Add(comboBoxName.Text.ToString());
@@ -367,10 +283,10 @@ namespace CourseworkManagmentApplication
                     dateTimePicker.Value = DateTime.Now;
                     MessageBox.Show("Item has been added");
 
-                    int index = panels.Count - 1;
+                    int index = DeadlineClasses.panels.Count - 1;
                     using (StreamWriter writer = new StreamWriter(@".\\deadlines.txt", true))
                     {
-                        writer.WriteLine(panels[index].getInfo(), Environment.NewLine);
+                        writer.WriteLine(DeadlineClasses.panels[index].getInfo(), Environment.NewLine);
                     }
 
                 }
@@ -391,11 +307,11 @@ namespace CourseworkManagmentApplication
                     if (richTextBox.TextLength == 0)
                     {
 
-                        meetings.Add(new AdminMeeting(comboBoxName.Text.ToString(), username, dueDate, setDate, ""));
+                        DeadlineClasses.meetings.Add(new AdminMeeting(comboBoxName.Text.ToString(), username, dueDate, setDate, ""));
                     }
                     else
                     {
-                        meetings.Add(new AdminMeeting(comboBoxName.Text.ToString(), username, dueDate, setDate, richTextBox.Text));
+                        DeadlineClasses.meetings.Add(new AdminMeeting(comboBoxName.Text.ToString(), username, dueDate, setDate, richTextBox.Text));
                     }
 
                     comboBoxName.Items.Add(comboBoxName.Text.ToString());
@@ -405,10 +321,10 @@ namespace CourseworkManagmentApplication
                     dateTimePicker.Value = DateTime.Now;
                     MessageBox.Show("Item has been added");
 
-                    int index = meetings.Count - 1;
+                    int index = DeadlineClasses.meetings.Count - 1;
                     using (StreamWriter writer = new StreamWriter(@".\\deadlines.txt", true))
                     {
-                        writer.WriteLine(meetings[index].getInfo(), Environment.NewLine);
+                        writer.WriteLine(DeadlineClasses.meetings[index].getInfo(), Environment.NewLine);
                     }
                 }
 
@@ -427,11 +343,11 @@ namespace CourseworkManagmentApplication
 
                     if (richTextBox.TextLength == 0)
                     {
-                        assignments.Add(new Assignment(comboBoxName.Text.ToString(), username, dueDate, setDate, ""));
+                        DeadlineClasses.assignments.Add(new Assignment(comboBoxName.Text.ToString(), username, dueDate, setDate, ""));
                     }
                     else
                     {
-                        assignments.Add(new Assignment(comboBoxName.Text.ToString(), username, dueDate, setDate, richTextBox.Text));
+                        DeadlineClasses.assignments.Add(new Assignment(comboBoxName.Text.ToString(), username, dueDate, setDate, richTextBox.Text));
                     }
                     comboBoxName.Items.Add(comboBoxName.Text.ToString());
                     comboBoxName.Text = "";
@@ -440,18 +356,13 @@ namespace CourseworkManagmentApplication
                     dateTimePicker.Value = DateTime.Now;
                     MessageBox.Show("Item has been added");
 
-                    int index = assignments.Count - 1;
+                    int index = DeadlineClasses.assignments.Count - 1;
                     using (StreamWriter writer = new StreamWriter(@".\\deadlines.txt", true))
                     {
-                        writer.WriteLine(assignments[index].getInfo(), Environment.NewLine);
+                        writer.WriteLine(DeadlineClasses.assignments[index].getInfo(), Environment.NewLine);
                     }
                 }
             }
-        }
-
-        private void labelDueDate_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

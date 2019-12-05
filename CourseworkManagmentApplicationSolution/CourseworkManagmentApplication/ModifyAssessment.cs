@@ -16,6 +16,12 @@ namespace CourseworkManagmentApplication
         public ModifyAssessment()
         {
             InitializeComponent();
+
+            for (int i = 0; i < DeadlineClasses.assignments.Count; i++)
+            {
+                comboBoxName.Items.Add(DeadlineClasses.assignments[i].getName());
+            }
+
         }
 
         private void button2_Click(object sender, EventArgs e)

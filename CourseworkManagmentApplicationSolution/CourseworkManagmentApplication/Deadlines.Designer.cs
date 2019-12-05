@@ -121,7 +121,6 @@
             this.labelDueDate.Size = new System.Drawing.Size(53, 13);
             this.labelDueDate.TabIndex = 14;
             this.labelDueDate.Text = "Due Date";
-            this.labelDueDate.Click += new System.EventHandler(this.labelDueDate_Click);
             // 
             // labelComments
             // 
