@@ -70,7 +70,6 @@ namespace CourseworkManagmentApplication
                     Main mainForm = new Main(); // Creating an instance of the second window.
                     this.Visible = false; // Setting the login form to invisible.
                     mainForm.Show(); // Opening the main application page.
-                    mainForm.setAMButtonVisible(false); // Setting the deadline button to invisible.
                     mainForm.setUSButtonVisible(false); // Setting the update scrutiny form button to invisible.
                     mainForm.setVASButtonVisible(false); // Setting the view assessment strategy button to invisible.
                 }
@@ -81,7 +80,6 @@ namespace CourseworkManagmentApplication
                     Main mainForm = new Main(); // Creating an instance of the second window.
                     this.Visible = false; // Setting the login form to invisible.
                     mainForm.Show(); // Opening the main application page.
-                    mainForm.setAMButtonVisible(false); // Setting the deadline button to invisible.
 
                 }
                 // Checking if the user is a program director.
@@ -91,7 +89,6 @@ namespace CourseworkManagmentApplication
                     Main mainForm = new Main(); // Creating an instance of the second window.
                     this.Visible = false; // Setting the login form to invisible.
                     mainForm.Show(); // Opening the main application page.
-                    mainForm.setAMButtonVisible(false); // Setting the deadline button to invisible.
                     mainForm.setMAButtonVisible(false); // Setting the modify assessment button to invisible.
                     mainForm.setVASButtonVisible(false); // Setting the view assessment strategy button to invisible.
                 }
@@ -102,7 +99,6 @@ namespace CourseworkManagmentApplication
                     Main mainForm = new Main(); // Creating an instance of the second window.
                     this.Visible = false; // Setting the login form to invisible.
                     mainForm.Show(); // Opening the main application page.
-                    mainForm.setAMButtonVisible(false); // Setting the deadline button to invisible.
                     mainForm.setMAButtonVisible(false); // Setting the modify assessment button to invisible.
                     mainForm.setVASButtonVisible(false); // Setting the view assessment strategy button to invisible.
                 }

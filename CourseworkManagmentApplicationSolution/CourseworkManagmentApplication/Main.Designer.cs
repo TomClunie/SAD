@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.buttonDeadlines = new System.Windows.Forms.Button();
-            this.buttonAssignModerator = new System.Windows.Forms.Button();
             this.buttonViewAssessmentStrategy = new System.Windows.Forms.Button();
             this.buttonUpdateScrutinyForm = new System.Windows.Forms.Button();
             this.buttonTasks = new System.Windows.Forms.Button();
@@ -45,16 +44,6 @@
             this.buttonDeadlines.Text = "Deadlines";
             this.buttonDeadlines.UseVisualStyleBackColor = true;
             this.buttonDeadlines.Click += new System.EventHandler(this.buttonDeadlines_Click);
-            // 
-            // buttonAssignModerator
-            // 
-            this.buttonAssignModerator.Location = new System.Drawing.Point(206, 38);
-            this.buttonAssignModerator.Name = "buttonAssignModerator";
-            this.buttonAssignModerator.Size = new System.Drawing.Size(171, 124);
-            this.buttonAssignModerator.TabIndex = 1;
-            this.buttonAssignModerator.Text = "Assign Moderators";
-            this.buttonAssignModerator.UseVisualStyleBackColor = true;
-            this.buttonAssignModerator.Click += new System.EventHandler(this.buttonAssignModerator_Click);
             // 
             // buttonViewAssessmentStrategy
             // 
@@ -105,7 +94,6 @@
             this.Controls.Add(this.buttonTasks);
             this.Controls.Add(this.buttonModifyAssessment);
             this.Controls.Add(this.buttonViewAssessmentStrategy);
-            this.Controls.Add(this.buttonAssignModerator);
             this.Controls.Add(this.buttonDeadlines);
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -118,7 +106,6 @@
         #endregion
 
         private System.Windows.Forms.Button buttonDeadlines;
-        private System.Windows.Forms.Button buttonAssignModerator;
         private System.Windows.Forms.Button buttonViewAssessmentStrategy;
         private System.Windows.Forms.Button buttonUpdateScrutinyForm;
         private System.Windows.Forms.Button buttonTasks;

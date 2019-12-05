@@ -26,12 +26,21 @@ namespace CourseworkManagmentApplication
 
         private void button2_Click(object sender, EventArgs e)
         {
-            // Opening a file from the machine in use and loading contents into the textbox
-            OpenFileDialog ofd = new OpenFileDialog();
-            if (ofd.ShowDialog() == DialogResult.OK)
+            // Writing changes to the assignment 1 file
+            if (comboBoxName.SelectedItem.ToString() == "Assignment 1")
             {
-                string s = File.ReadAllText(ofd.FileName);
-                richTextBox1.Text = s;
+                using (StreamWriter sw = new StreamWriter("Assignment 1.txt"))
+                {
+                    sw.WriteLine(richTextBox1.Text);
+                }
+            }
+            // Writing changes to the assignment 2 file
+            else if (comboBoxName.SelectedItem.ToString() == "Assignment 2")
+            {
+                using (StreamWriter sw1 = new StreamWriter("Assignment 2.txt"))
+                {
+                    sw1.WriteLine(richTextBox1.Text);
+                }
             }
         }
 
@@ -61,7 +70,6 @@ namespace CourseworkManagmentApplication
                 {
                     richTextBox1.Text = sr1.ReadToEnd();
                 }
-                //StreamWriter sw1 = new StreamWriter("Assignment 2.txt");
 
                 sr1.Close();
             }
