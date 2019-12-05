@@ -62,12 +62,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AssignModerator.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="AssignModerator.Designer.cs">
-      <DependentUpon>AssignModerator.cs</DependentUpon>
-    </Compile>
     <Compile Include="Deadlines.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -108,9 +102,6 @@
       <DependentUpon>UpdateScrutiny.cs</DependentUpon>
     </Compile>
     <Compile Include="UserClasses.cs" />
-    <EmbeddedResource Include="AssignModerator.resx">
-      <DependentUpon>AssignModerator.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Deadlines.resx">
       <DependentUpon>Deadlines.cs</DependentUpon>
     </EmbeddedResource>

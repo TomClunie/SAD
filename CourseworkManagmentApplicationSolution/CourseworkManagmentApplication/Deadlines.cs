@@ -81,7 +81,7 @@ namespace CourseworkManagmentApplication
 
                 for (int j = 0; j < User.listOfUsers.Count; j++)
                 {
-                    if (User.listOfUsers[j].GetType().ToString().Contains("ModuleLeader") || User.listOfUsers[j].GetType().ToString().Contains("Academic") || User.listOfUsers[j].GetType().ToString().Contains("Moderator") || User.listOfUsers[j].GetType().ToString().Contains("ProgrammeDirector"))
+                    if (User.listOfUsers[j].GetType().ToString().Contains("ModuleLeader") || User.listOfUsers[j].GetType().ToString().Contains("Academic") || User.listOfUsers[j].GetType().ToString().Contains("ProgrammeDirector"))
                     {
                         comboBoxUser.Items.Add(User.listOfUsers[j].getName());
                     }

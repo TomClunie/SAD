@@ -17,11 +17,6 @@ namespace CourseworkManagmentApplication
             InitializeComponent();
         }
 
-        // Allowing the assign moderator button visibility property to be changed on another form.
-        public void setAMButtonVisible(Boolean flag)
-        {
-            this.buttonAssignModerator.Visible = flag;
-        }
         // Allowing the update scrutiny button visibility property to be changed on another form.
         public void setUSButtonVisible(Boolean flag)
         {
@@ -43,13 +38,6 @@ namespace CourseworkManagmentApplication
         {
             Deadlines deadlines = new Deadlines();
             deadlines.Show();
-        }
-
-        private void buttonAssignModerator_Click(object sender, EventArgs e)
-        {
-
-            AssignModerator assignModerator = new AssignModerator();
-            assignModerator.Show();
         }
 
         private void buttonModifyAssessment_Click(object sender, EventArgs e)

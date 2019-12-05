@@ -66,15 +66,6 @@ namespace CourseworkManagmentApplication
         }
     }
 
-    //Moderator class
-    class Moderator : User
-    {
-        public Moderator(string username, string name) : base(username, name)
-        {
-
-        }
-    }
-
     //Faculty Hub class
     class FacultyHub : User
     {
