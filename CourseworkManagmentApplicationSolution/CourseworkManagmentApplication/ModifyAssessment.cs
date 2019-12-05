@@ -31,7 +31,7 @@ namespace CourseworkManagmentApplication
             if (ofd.ShowDialog() == DialogResult.OK)
             {
                 string s = File.ReadAllText(ofd.FileName);
-                textBox1.Text = s;
+                richTextBox1.Text = s;
             }
         }
 
@@ -43,7 +43,28 @@ namespace CourseworkManagmentApplication
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (comboBoxName.SelectedItem.ToString() == "Assignment 1")
+            {
+                // This displays the fist line of Assignment 1
+                StreamReader sr = new StreamReader("Assignment 1.txt");
+                richTextBox1.Text = sr.ReadLine();
 
+                sr.Close();
+            }
+
+            else if (comboBoxName.SelectedItem.ToString() == "Assignment 2")
+            {
+                // This doesnt work
+                StreamReader sr1 = new StreamReader("Assignment 2.txt");
+                string line = null;
+                while ((line = sr1.ReadLine()) != null)
+                {
+                    richTextBox1.Text = sr1.ReadLine();
+                }
+                //StreamWriter sw1 = new StreamWriter("Assignment 2.txt");
+
+                sr1.Close();
+            }
         }
     }
 }
