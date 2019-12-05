@@ -47,7 +47,7 @@ namespace CourseworkManagmentApplication
             {
                 // This displays the fist line of Assignment 1
                 StreamReader sr = new StreamReader("Assignment 1.txt");
-                richTextBox1.Text = sr.ReadLine();
+                richTextBox1.Text = sr.ReadToEnd();
 
                 sr.Close();
             }
@@ -59,7 +59,7 @@ namespace CourseworkManagmentApplication
                 string line = null;
                 while ((line = sr1.ReadLine()) != null)
                 {
-                    richTextBox1.Text = sr1.ReadLine();
+                    richTextBox1.Text = sr1.ReadToEnd();
                 }
                 //StreamWriter sw1 = new StreamWriter("Assignment 2.txt");
 
