@@ -16,7 +16,10 @@ namespace CourseworkManagmentApplication
         public UpdateScrutiny()
         {
             InitializeComponent();
-                     
+            for (int i = 0; i < DeadlineClasses.assignments.Count; i++)
+            {
+                comboBoxAssignment.Items.Add(DeadlineClasses.assignments[i].getName());
+            }
         }
         
         private void UpdateScrutiny_Load(object sender, EventArgs e)
