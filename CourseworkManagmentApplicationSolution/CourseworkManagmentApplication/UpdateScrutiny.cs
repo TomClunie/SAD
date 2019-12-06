@@ -26,6 +26,7 @@ namespace CourseworkManagmentApplication
         private void UpdateScrutiny_Load(object sender, EventArgs e)
         {
             StreamReader reader = new StreamReader(@".\\users.txt");
+
             string line;
             string ModeratorLine;
             string ModLeadLine;
@@ -35,53 +36,35 @@ namespace CourseworkManagmentApplication
             while ((line = reader.ReadLine()) != null)
             {
                 //Module Leader
-                if (line.Contains(currentUser) && line.Contains("Module Leader"))
-                {                    
-                    StreamReader ModLeadReader = new StreamReader(@".\\ModuleLeaderChecklist.txt");
-                    while ((ModLeadLine = ModLeadReader.ReadLine()) != null)
-                    {
-                        checkedListBoxModerator.Items.Add(ModLeadLine);
-                    }
+                StreamReader ModLeadReader = new StreamReader(@".\\ModuleLeaderChecklist.txt");
+                while ((ModLeadLine = ModLeadReader.ReadLine()) != null)
+                {
+                    checkedListBoxModerator.Items.Add(ModLeadLine);
                 }
                 // Director of Study - Panel
-                else if (line.Contains(currentUser) && line.Contains("Director Of Study"))
+                StreamReader DosReader = new StreamReader(@".\\PanelChecklist.txt");
+                while ((directorOfStudyLine = DosReader.ReadLine()) != null)
                 {
-                    StreamReader DosReader = new StreamReader(@".\\PanelChecklist.txt");
-                    while ((directorOfStudyLine = DosReader.ReadLine()) != null)
-                    {
-                        checkedListBoxModerator.Items.Add(directorOfStudyLine);
-                    }
+                    checkedListBoxModerator.Items.Add(directorOfStudyLine);
                 }
                 // Programme Director - Panel                
-                else if (line.Contains(currentUser) && line.Contains("Programme Director"))
+                StreamReader PDReader = new StreamReader(@".\\PanelChecklist.txt");
+                while ((programmeDirectorLine = PDReader.ReadLine()) != null)
                 {
-                    StreamReader PDReader = new StreamReader(@".\\PanelChecklist.txt");
-                    while ((programmeDirectorLine = PDReader.ReadLine()) != null)
-                    {
-                        checkedListBoxModerator.Items.Add(programmeDirectorLine);
-                    }
+                    checkedListBoxModerator.Items.Add(programmeDirectorLine);
                 }
-
                 //Moderator
-                else if (line.Contains(currentUser) && line.Contains("Moderator"))
+                StreamReader ModReader = new StreamReader(@".\\ModeratorChecklist.txt");
+                while ((ModeratorLine = ModReader.ReadLine()) != null)
                 {
-                    StreamReader ModReader = new StreamReader(@".\\ModeratorChecklist.txt");
-                    while ((ModeratorLine = ModReader.ReadLine()) != null)
-                    {
-                        checkedListBoxModerator.Items.Add(ModeratorLine);
-                    }
+                    checkedListBoxModerator.Items.Add(ModeratorLine);
                 }
-
                 //External Examiner
-                else if (line.Contains(currentUser) && line.Contains("External Examiner"))
+                StreamReader extExamReader = new StreamReader(@".\\ExternalExaminer.txt");
+                while ((externalExaminerLine = extExamReader.ReadLine()) != null)
                 {
-                    StreamReader extExamReader = new StreamReader(@".\\ExternalExaminer.txt");
-                    while ((externalExaminerLine = extExamReader.ReadLine()) != null)
-                    {
-                        checkedListBoxModerator.Items.Add(externalExaminerLine);
-                    }
+                    checkedListBoxModerator.Items.Add(externalExaminerLine);
                 }
-
             }
         }
 
