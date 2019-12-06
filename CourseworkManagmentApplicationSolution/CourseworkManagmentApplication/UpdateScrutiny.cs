@@ -16,17 +16,72 @@ namespace CourseworkManagmentApplication
         public UpdateScrutiny()
         {
             InitializeComponent();
-
             for (int i = 0; i < DeadlineClasses.assignments.Count; i++)
             {
                 comboBoxAssignment.Items.Add(DeadlineClasses.assignments[i].getName());
-            }
-
-            StreamReader reader = new StreamReader(@".\\ModeratorChecklist.txt");
+            }            
+        }
+        string currentUser = Form1.cUser;
+        
+        private void UpdateScrutiny_Load(object sender, EventArgs e)
+        {
+            StreamReader reader = new StreamReader(@".\\users.txt");
             string line;
+            string ModeratorLine;
+            string ModLeadLine;
+            string directorOfStudyLine;
+            string programmeDirectorLine;
+            string externalExaminerLine;
             while ((line = reader.ReadLine()) != null)
             {
-                checkedListBoxModerator.Items.Add(line);
+                //Module Leader
+                if (line.Contains(currentUser) && line.Contains("Module Leader"))
+                {                    
+                    StreamReader ModLeadReader = new StreamReader(@".\\ModuleLeaderChecklist.txt");
+                    while ((ModLeadLine = ModLeadReader.ReadLine()) != null)
+                    {
+                        checkedListBoxModerator.Items.Add(ModLeadLine);
+                    }
+                }
+                // Director of Study - Panel
+                else if (line.Contains(currentUser) && line.Contains("Director Of Study"))
+                {
+                    StreamReader DosReader = new StreamReader(@".\\PanelChecklist.txt");
+                    while ((directorOfStudyLine = DosReader.ReadLine()) != null)
+                    {
+                        checkedListBoxModerator.Items.Add(directorOfStudyLine);
+                    }
+                }
+                // Programme Director - Panel                
+                else if (line.Contains(currentUser) && line.Contains("Programme Director"))
+                {
+                    StreamReader PDReader = new StreamReader(@".\\PanelChecklist.txt");
+                    while ((programmeDirectorLine = PDReader.ReadLine()) != null)
+                    {
+                        checkedListBoxModerator.Items.Add(programmeDirectorLine);
+                    }
+                }
+
+                //Moderator
+                else if (line.Contains(currentUser) && line.Contains("Moderator"))
+                {
+                    StreamReader ModReader = new StreamReader(@".\\ModeratorChecklist.txt");
+                    while ((ModeratorLine = ModReader.ReadLine()) != null)
+                    {
+                        checkedListBoxModerator.Items.Add(ModeratorLine);
+                    }
+                }
+
+                //External Examiner
+                else if (line.Contains(currentUser) && line.Contains("External Examiner"))
+                {
+                    StreamReader extExamReader = new StreamReader(@".\\ExternalExaminer.txt");
+                    while ((externalExaminerLine = extExamReader.ReadLine()) != null)
+                    {
+                        checkedListBoxModerator.Items.Add(externalExaminerLine);
+                    }
+                }
+
             }
         }
 
@@ -44,18 +99,17 @@ namespace CourseworkManagmentApplication
                     {
                         writer.WriteLine(item.ToString() + " yes");
                     }
-
                 }
                 writer.Close();
-
                 for (int i = 0; i < checkedListBoxModerator.Items.Count; i++)
                 {
                     checkedListBoxModerator.SetItemChecked(i, false);
                 }
 
                 MessageBox.Show("Scrutiny Form Saved");
-            }
-          
+            }          
         }
+
+        
     } 
 }

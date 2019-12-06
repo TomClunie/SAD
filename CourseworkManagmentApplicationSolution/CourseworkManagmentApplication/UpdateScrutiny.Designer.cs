@@ -41,14 +41,13 @@
             this.comboBoxAssignment.Name = "comboBoxAssignment";
             this.comboBoxAssignment.Size = new System.Drawing.Size(177, 21);
             this.comboBoxAssignment.TabIndex = 3;
-            this.comboBoxAssignment.SelectedIndexChanged += new System.EventHandler(this.comboBoxAssignment_SelectedIndexChanged);
             // 
             // checkedListBoxModerator
             // 
             this.checkedListBoxModerator.FormattingEnabled = true;
             this.checkedListBoxModerator.Location = new System.Drawing.Point(12, 73);
             this.checkedListBoxModerator.Name = "checkedListBoxModerator";
-            this.checkedListBoxModerator.Size = new System.Drawing.Size(777, 94);
+            this.checkedListBoxModerator.Size = new System.Drawing.Size(777, 364);
             this.checkedListBoxModerator.TabIndex = 4;
             // 
             // buttonSave
@@ -72,6 +71,7 @@
             this.Name = "UpdateScrutiny";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "UpdateScrutiny";
+            this.Load += new System.EventHandler(this.UpdateScrutiny_Load);
             this.ResumeLayout(false);
 
         }
