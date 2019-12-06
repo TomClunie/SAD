@@ -31,7 +31,6 @@ namespace CourseworkManagmentApplication
             string ModeratorLine;
             string ModLeadLine;
             string directorOfStudyLine;
-            string programmeDirectorLine;
             string externalExaminerLine;
             while ((line = reader.ReadLine()) != null)
             {
@@ -41,17 +40,11 @@ namespace CourseworkManagmentApplication
                 {
                     checkedListBoxModerator.Items.Add(ModLeadLine);
                 }
-                // Director of Study - Panel
+                // Director of Study, Programme Director - Panel
                 StreamReader DosReader = new StreamReader(@".\\PanelChecklist.txt");
                 while ((directorOfStudyLine = DosReader.ReadLine()) != null)
                 {
                     checkedListBoxModerator.Items.Add(directorOfStudyLine);
-                }
-                // Programme Director - Panel                
-                StreamReader PDReader = new StreamReader(@".\\PanelChecklist.txt");
-                while ((programmeDirectorLine = PDReader.ReadLine()) != null)
-                {
-                    checkedListBoxModerator.Items.Add(programmeDirectorLine);
                 }
                 //Moderator
                 StreamReader ModReader = new StreamReader(@".\\ModeratorChecklist.txt");
