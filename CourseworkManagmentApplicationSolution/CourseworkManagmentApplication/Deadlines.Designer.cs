@@ -177,7 +177,7 @@
             this.Controls.Add(this.richTextBox);
             this.Name = "Deadlines";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Deadlines";
+            this.Text = "7";
             this.Load += new System.EventHandler(this.Deadlines_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

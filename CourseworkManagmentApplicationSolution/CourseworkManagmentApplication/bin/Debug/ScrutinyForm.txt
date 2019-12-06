@@ -1,0 +1,28 @@
+System.Windows.Forms.CheckedListBox, Items.Count: 13, Items[0]: Does the assessment match the weighting 
+System.Windows.Forms.CheckedListBox, Items.Count: 13, Items[0]: Does the assessment match the weighting 
+Does the assessment match the weighting and size/length as published in the module specification?
+Does the assessment address the relevant learning outcomes stated in the module specification? If appropriate, are the learning outcomes identified?
+Does the assessment match the weighting and size/length as published in the module specification?
+Does the assessment address the relevant learning outcomes stated in the module specification? If appropriate, are the learning outcomes identified?
+Does the assessment match the weighting and size/length as published in the module specification?
+Does the assessment address the relevant learning outcomes stated in the module specification? If appropriate, are the learning outcomes identified?
+Does the assessment match the weighting and size/length as published in the module specification?
+Does the assessment address the relevant learning outcomes stated in the module specification? If appropriate, are the learning outcomes identified?
+Does the assessment match the weighting and size/length as published in the module specification?
+Does the assessment address the relevant learning outcomes stated in the module specification? If appropriate, are the learning outcomes identified?
+Does the assessment match the weighting and size/length as published in the module specification?
+Does the assessment address the relevant learning outcomes stated in the module specification? If appropriate, are the learning outcomes identified?
+Does the assessment match the weighting and size/length as published in the module specification?
+Does the assessment address the relevant learning outcomes stated in the module specification? If appropriate, are the learning outcomes identified?
+Does the assessment match the weighting and size/length as published in the module specification?
+Does the assessment address the relevant learning outcomes stated in the module specification? If appropriate, are the learning outcomes identified?
+Does the assessment match the weighting and size/length as published in the module specification?
+Does the assessment address the relevant learning outcomes stated in the module specification? If appropriate, are the learning outcomes identified?
+Does the assessment match the weighting and size/length as published in the module specification?
+Does the assessment address the relevant learning outcomes stated in the module specification? If appropriate, are the learning outcomes identified?
+Does the assessment match the weighting and size/length as published in the module specification?
+Does the assessment address the relevant learning outcomes stated in the module specification? If appropriate, are the learning outcomes identified?
+Does the assessment match the weighting and size/length as published in the module specification?
+Does the assessment address the relevant learning outcomes stated in the module specification? If appropriate, are the learning outcomes identified?
+Does the assessment match the weighting and size/length as published in the module specification?
+Does the assessment address the relevant learning outcomes stated in the module specification? If appropriate, are the learning outcomes identified?

@@ -16,130 +16,46 @@ namespace CourseworkManagmentApplication
         public UpdateScrutiny()
         {
             InitializeComponent();
-        }
-        string currentUser = Form1.cUser;
-        public string bLine;
-        public string bLine1;
-        public string bLine2;
-        private void UpdateScrutiny_Load(object sender, EventArgs e)
-        {
-            comboBox1.Items.Add("Assessment 1");
-        }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            var text = listBox1.SelectedItem.ToString();
-            var ass = comboBox1.SelectedItem.ToString();
-            using (StreamWriter writer = new StreamWriter(@".\\ScrutinyComplete.txt", true))
+            for (int i = 0; i < DeadlineClasses.assignments.Count; i++)
             {
-                writer.WriteLine(text + "," + ass);
-                writer.Close();
+                comboBoxAssignment.Items.Add(DeadlineClasses.assignments[i].getName());
             }
-            listBox1.Items.Remove(text);
 
+            StreamReader reader = new StreamReader(@".\\ModeratorChecklist.txt");
+            string line;
+            while ((line = reader.ReadLine()) != null)
+            {
+                checkedListBoxModerator.Items.Add(line);
+            }
         }
 
-        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        private void buttonSave_Click(object sender, EventArgs e)
         {
-            if (listBox1.Items.Count == 0)
+            if (comboBoxAssignment.SelectedItem == null)
             {
-                string line;
-                string moderatorLine;
-                StreamReader reader = new StreamReader(@".\\users.txt"); //Reading data from users.txt to validate current user & type
-
-                while ((line = reader.ReadLine()) != null)
+                MessageBox.Show("Please Select An assignment");
+            }
+            else
+            {
+                StreamWriter writer = new StreamWriter(@".\\" + comboBoxAssignment.Text + "ScrutinyForm.txt");
                 {
-                    if (line.Contains(currentUser) && line.Contains("Module Leader"))
+                    foreach (var item in checkedListBoxModerator.CheckedItems)
                     {
-                        StreamReader completeReader2 = new StreamReader(@".\\ScrutinyComplete.txt");
-                        StreamReader moderatorReader = new StreamReader(@".\\ModuleLeaderChecklist.txt");
-                        while ((moderatorLine = moderatorReader.ReadLine()) != null)
-                        {
-                            listBox1.Items.Add(moderatorLine);
-                        }
-                        while ((moderatorLine = completeReader2.ReadLine()) != null)
-                        {
-                            string[] components = line.Split(',');
-                            string one = components[0];
-                            string two = components[1];
-
-                            if (moderatorLine.Contains(one) && moderatorLine.Contains(two))
-                            {
-                                listBox1.Items.Remove(moderatorLine);
-                            }
-                        }
-                        completeReader2.Close();
+                        writer.WriteLine(item.ToString() + " yes");
                     }
-                }
-            }
-            /*while ((line = reader.ReadLine()) != null) //loop through each line in users.txt
-        {
-            //Module Leader Checklist
-            if (line.Contains(currentUser) && line.Contains("Module Leader")) //If that line contains the current username & is a module leader type
-            {
-                StreamReader completeReader1 = new StreamReader(@".\\ScrutinyComplete.txt");
-                //add each line from ModuleLeaderChecklist.txt to the check box
-                StreamReader moduleLeaderReader = new StreamReader(@".\\ModuleLeaderChecklist.txt");
-                while ((moduleLeaderLine = moduleLeaderReader.ReadLine()) != null)
-                {
-                    listBox1.Items.Add(moduleLeaderLine); //Add current line to CheckedListBox1                        
-                }
-                while ((moduleLeaderLine = completeReader1.ReadLine()) != null)
-                {
-                    listBox1.Items.Remove(moduleLeaderLine);
-                }
-                completeReader1.Close();
-            }
 
-            //Moderator Checklist
-            if (line.Contains(currentUser) && line.Contains("Moderator"))
-            {
-                StreamReader completeReader2 = new StreamReader(@".\\ScrutinyComplete.txt");
-                StreamReader moderatorReader = new StreamReader(@".\\ModeratorChecklist.txt");
-                while ((moderatorLine = moderatorReader.ReadLine()) != null)
-                {
-                    listBox1.Items.Add(moderatorLine);
                 }
-                while ((moderatorLine = completeReader2.ReadLine()) != null)
-                {
-                    listBox1.Items.Remove(moderatorLine);
-                }
-                completeReader2.Close();
-            }
+                writer.Close();
 
-            //External Examiner Checklist
-            if (line.Contains(currentUser) && line.Contains("ExtExam"))
-            {
-                StreamReader completeReader3 = new StreamReader(@".\\ScrutinyComplete.txt");
-                StreamReader externalExaminerReader = new StreamReader(@".\\ExternalExaminerChecklist.txt");
-                while ((externalExaminerLine = externalExaminerReader.ReadLine()) != null)
+                for (int i = 0; i < checkedListBoxModerator.Items.Count; i++)
                 {
-                    listBox1.Items.Add(externalExaminerLine);
+                    checkedListBoxModerator.SetItemChecked(i, false);
                 }
-                while ((externalExaminerLine = completeReader3.ReadLine()) != null)
-                {
-                    listBox1.Items.Remove(externalExaminerLine);
-                }
-                completeReader3.Close();
-            }
 
-            //Panel Checklist
-            if (line.Contains(currentUser) && line.Contains("Panel"))
-            {
-                StreamReader completeReader4 = new StreamReader(@".\\ScrutinyComplete.txt");
-                StreamReader panelReader = new StreamReader(@".\\PanelChecklist.txt");
-                while ((panelLine = panelReader.ReadLine()) != null)
-                {
-                    listBox1.Items.Add(panelLine);
-                }
-                while ((panelLine = completeReader4.ReadLine()) != null)
-                {
-                    listBox1.Items.Remove(panelLine);
-                }
-                completeReader4.Close();
+                MessageBox.Show("Scrutiny Form Saved");
             }
-        }
-             */
+          
         }
     } 
 }

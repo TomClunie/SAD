@@ -8,3 +8,16 @@ If on Canvas, has Turnitin been set up correctly?
 Does the assessment address the relevant learning outcomes stated in the module specification? If appropriate, are the learning outcomes identified?
 Is the assessment clear and unambiguous?
 Is the assessment clear and unambiguous?,Assessment 1
+Assessment Type,Assessment 1
+Link to assessment task & solution/mark scheme (if appropriate),Assessment 1
+Assessment Type,Assessment 1
+Assessment Type,Assessment 1
+Date Instructions released to students,Assessment 1
+Assessment Type,Assessment 1
+Link to assessment task & solution/mark scheme (if appropriate),Assessment 1
+Link to assessment task & solution/mark scheme (if appropriate),Assessment 1
+Assessment Type,Assessment 1
+Assessment Type,Assessment 1
+Deadline for student submission,Assessment 1
+Assessment Type,Assessment 1
+Link to assessment task & solution/mark scheme (if appropriate),Assessment 1
